@@ -95,4 +95,11 @@ h2{
     border-radius: 1em;
     padding: 2em;
 }
+
+@media (max-width:768px) {
+    table{
+        font-size: small;
+    }
+    
+}
 </style>
