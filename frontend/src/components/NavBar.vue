@@ -128,7 +128,6 @@ export default {
         position: fixed;
         top: 72px;
         left: 0;
-        display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
