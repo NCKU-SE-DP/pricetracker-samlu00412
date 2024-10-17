@@ -111,4 +111,10 @@ form > input{
 #login:hover{
     background-color: #46b8da;
 }
+
+@media(max-width:768px){
+    .ops > button{
+        font-size: 0.9em;
+    }
+}
 </style>
