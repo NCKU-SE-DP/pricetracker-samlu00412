@@ -14,11 +14,13 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
-from pydantic import BaseModel, Field, AnyHttpUrl
+from pydantic import BaseModel,Field, AnyHttpUrl
 from sqlalchemy import (Column, ForeignKey, Integer, String, Table, Text,
                         create_engine)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
+
+from .auth.schemas import UserAuthSchema, PromptRequest, NewsSumaryRequestSchema
 
 Base = declarative_base()
 
@@ -41,15 +43,15 @@ class Constants:
 
 # from pydantic import BaseModel
 
-class UserAuthSchema(BaseModel):
-    username: str
-    password: str
+# class UserAuthSchema(BaseModel):
+#     username: str
+#     password: str
 
-class PromptRequest(BaseModel):
-    prompt: str
+# class PromptRequest(BaseModel):
+#     prompt: str
 
-class NewsSumaryRequestSchema(BaseModel):
-    content: str
+# class NewsSumaryRequestSchema(BaseModel):
+#     content: str
 
 class User(Base):
     __tablename__ = "users"
