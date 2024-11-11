@@ -4,11 +4,14 @@ from sqlalchemy import create_engine, StaticPool
 from sqlalchemy.orm import sessionmaker
 import json
 from jose import jwt
-from backend.src.main import app
-from backend.src.main import Base, NewsArticle, User, session_opener, user_news_association_table
-from backend.src.main import NewsSumaryRequestSchema, PromptRequest
-from backend.src.main import pwd_context
 from unittest.mock import Mock
+
+from ...src.main import app
+from ...src.database import Base,session_opener
+from ...src.posts.models import NewsArticle
+from ...src.posts.schemas import NewsSumaryRequestSchema
+from ...src.users.models import User
+from ...src.auth.depends import password_context as pwd_context
 
 
 SECRET_KEY = "1892dhianiandowqd0n"
@@ -50,7 +53,7 @@ def test_user(clear_users):
 
 @pytest.fixture(scope="module")
 def test_token(test_user):
-    access_token = jwt.encode({"sub": test_user.username}, SECRET_KEY, algorithm=ALGORITHM)
+    access_token = jwt.encode({"sub": test_user.username}, SECRET_KEY, algorithm=[ALGORITHM])
     return access_token
 
 
