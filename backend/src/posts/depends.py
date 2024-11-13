@@ -12,7 +12,7 @@ from src.posts.models import NewsArticle
 
 id_counter = itertools.count(start=Constants.ID_START)
 
-
+openai_client = OpenAI(api_key="")
 def get_article_upvote_details(article_id, user_id, database):
     num_of_likes = (
         database.query(user_news_association_table)
