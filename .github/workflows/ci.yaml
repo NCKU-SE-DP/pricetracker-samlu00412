@@ -19,12 +19,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Clear and Set Permissions for Temp Folder
-          run: 
-            Remove-Item -Recurse -Force "${{ runner.temp }}\*"
-            icacls "${{ runner.temp }}" /grant Everyone:F /T
-          shell: powershell
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
