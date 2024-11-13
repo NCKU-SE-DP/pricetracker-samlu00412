@@ -6,5 +6,4 @@ sentry_sdk.init(
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
 )
-
 Background_scheduler = BackgroundScheduler()

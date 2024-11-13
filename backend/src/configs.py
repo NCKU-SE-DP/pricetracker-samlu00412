@@ -1,5 +1,5 @@
 from sqlalchemy import Column,Integer,Table,ForeignKey
-from .database import Base
+from src.database import Base
 
 class Constants:
     MAX_USERNAME_LENGTH = 50

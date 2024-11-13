@@ -1,7 +1,7 @@
 from fastapi import APIRouter,Query
 import requests
 
-from ..configs import Constants
+from src.configs import Constants
 
 router = APIRouter(
     prefix="/prices",

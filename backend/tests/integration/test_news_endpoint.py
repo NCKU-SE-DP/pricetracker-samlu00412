@@ -4,15 +4,14 @@ from sqlalchemy import create_engine, StaticPool
 from sqlalchemy.orm import sessionmaker
 import json
 from jose import jwt
-from unittest.mock import Mock
+from unittest.mock import Mock,patch
 
-from ...src.main import app
-from ...src.database import Base,session_opener
-from ...src.posts.models import NewsArticle
-from ...src.posts.schemas import NewsSumaryRequestSchema
-from ...src.users.models import User
-from ...src.auth.depends import password_context as pwd_context
-
+from src.main import app
+from src.database import Base,session_opener
+from src.posts.models import NewsArticle
+from src.posts.schemas import NewsSumaryRequestSchema
+from src.users.models import User
+from src.auth.depends import password_context
 
 SECRET_KEY = "1892dhianiandowqd0n"
 ALGORITHM = "HS256"
@@ -41,7 +40,7 @@ def clear_users():
 
 @pytest.fixture(scope="module")
 def test_user(clear_users):
-    hashed_password = pwd_context.hash("testpassword")
+    hashed_password = password_context.hash("testpassword")
 
     with next(override_session_opener()) as db:
         user = User(username="testuser", hashed_password=hashed_password)
@@ -53,7 +52,7 @@ def test_user(clear_users):
 
 @pytest.fixture(scope="module")
 def test_token(test_user):
-    access_token = jwt.encode({"sub": test_user.username}, SECRET_KEY, algorithm=[ALGORITHM])
+    access_token = jwt.encode({"sub": test_user.username}, SECRET_KEY,algorithm=ALGORITHM)
     return access_token
 
 
@@ -112,7 +111,7 @@ def test_read_user_news(test_user, test_token, test_articles):
     assert json_response[1]["is_upvoted"] is False
 
 def mock_openai(mocker, return_content):
-    mock_openai_client = mocker.patch('main.OpenAI')
+    mock_openai_client = mocker.patch("src.posts.routers.OpenAI")
 
     mock_message = Mock()
     mock_message.content = return_content
@@ -123,18 +122,18 @@ def mock_openai(mocker, return_content):
     mock_completion = Mock()
     mock_completion.choices = [mock_choice]
 
-    mock_openai_client.return_value.chat.completions.create.return_value = mock_completion
+    mock_openai_client.chat.completions.create.return_value = mock_completion
 
     return mock_openai_client
 
 def test_search_news(mocker):
     mock_openai(mocker, "keywords")
 
-    mock_get_new_info = mocker.patch("main.get_new_info", return_value=[
+    mock_get_new_info = mocker.patch("src.posts.routers.get_new_info", return_value=[
         {"titleLink": "http://example.com/news1"}
     ])
 
-    mock_get = mocker.patch("main.requests.get", return_value=mocker.Mock(
+    mock_get = mocker.patch("src.posts.routers.requests.get", return_value=mocker.Mock(
         text="""
         <html>
         <h1 class="article-content__title">Test Title</h1>

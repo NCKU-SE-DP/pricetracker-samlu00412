@@ -2,16 +2,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import sessionmaker
 from fastapi import FastAPI
 
-from .posts.depends import get_new
-from .posts.models import NewsArticle
-from .posts.routers import router as news_router
+from src.posts.depends import get_new
+from src.posts.models import NewsArticle
+from src.posts.routers import router as news_router
 
-from .database import engine
-from .services import Background_scheduler
+from src.database import engine
+from src.services import Background_scheduler
 
-from .users.routers import router as users_router
+from src.users.routers import router as users_router
 
-from .necessities.routers import router as necessities_router
+from src.necessities.routers import router as necessities_router
 
 
 app = FastAPI()
