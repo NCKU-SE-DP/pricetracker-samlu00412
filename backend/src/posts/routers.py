@@ -4,12 +4,12 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
-from ..configs import Constants
-from ..database import session_opener
-from .models import NewsArticle
-from..auth.depends import authenticate_user_token
-from .depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter
-from .schemas import PromptRequest,NewsSumaryRequestSchema
+from src.configs import Constants
+from src.database import session_opener
+from src.posts.models import NewsArticle
+from src.auth.depends import authenticate_user_token
+from src.posts.depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter
+from src.posts.schemas import PromptRequest,NewsSumaryRequestSchema
 
 router = APIRouter(
     prefix="/news",
@@ -113,7 +113,7 @@ async def news_summary(
         response["reason"] = result["原因"]
     return response
 
-@router.post("/upvote")
+@router.post("/{id}/upvote")
 def upvote_article(
         id,
         database=Depends(session_opener),

@@ -7,12 +7,12 @@ from bs4 import BeautifulSoup
 from openai import OpenAI
 from sqlalchemy.orm import Session
 
-from ..configs import Constants,user_news_association_table
-from .models import NewsArticle
+from src.configs import Constants,user_news_association_table
+from src.posts.models import NewsArticle
 
 id_counter = itertools.count(start=Constants.ID_START)
 
-
+openai_client = OpenAI(api_key="")
 def get_article_upvote_details(article_id, user_id, database):
     num_of_likes = (
         database.query(user_news_association_table)

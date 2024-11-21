@@ -1,8 +1,8 @@
 from sqlalchemy import Column,Text,Integer,String
 from sqlalchemy.orm import relationship
 
-from ..database import Base
-from ..configs import user_news_association_table
+from src.database import Base
+from src.configs import user_news_association_table
 
 class NewsArticle(Base):
     __tablename__ = "news_articles"

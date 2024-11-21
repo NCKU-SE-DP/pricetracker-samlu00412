@@ -4,10 +4,10 @@ from fastapi import Depends
 from jose import jwt
 from datetime import datetime, timedelta
 
-from ..users.models import User
+from src.users.models import User
 
-from ..configs import Constants
-from ..database import session_opener
+from src.configs import Constants
+from src.database import session_opener
 
 password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

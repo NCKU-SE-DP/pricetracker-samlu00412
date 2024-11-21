@@ -1,8 +1,8 @@
 from sqlalchemy import Column,Integer,String
 from sqlalchemy.orm import relationship
 
-from ..configs import Constants,user_news_association_table
-from ..database import Base
+from src.configs import Constants,user_news_association_table
+from src.database import Base
 
 class User(Base):
     __tablename__ = "users"
