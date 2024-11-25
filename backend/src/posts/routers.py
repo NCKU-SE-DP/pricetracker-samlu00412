@@ -97,7 +97,7 @@ async def news_summary(
     response = {}
     summary_prompt = [{
             "role": "system",
-            "content": "你是一個新聞摘要生成機器人，請統整新聞中提及的影響及主要原因 (影響、原因各50個字，請以json格式回答 {'影響': '...', '原因': '...'})",
+            "content": Constants.GPT_SUMMARY_PROMPT
         },
         {"role": "user", "content": f"{payload.content}"},
     ]

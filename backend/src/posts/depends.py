@@ -1,14 +1,12 @@
-import requests
 import json
 import itertools
-from urllib.parse import quote
 from sqlalchemy import delete, insert, select
-from bs4 import BeautifulSoup
 from openai import OpenAI
 from sqlalchemy.orm import Session
 
 from src.configs import Constants,user_news_association_table
 from src.posts.models import NewsArticle
+from src.crawler.udn_crawler import UDNCrawler as Crawl
 
 id_counter = itertools.count(start=Constants.ID_START)
 
@@ -31,47 +29,17 @@ def get_article_upvote_details(article_id, user_id, database):
 
 # get news' information according to search_term, and return the data which the function found.
 def get_new_info(search_term, is_initial=False):
-    all_news_data = []
     # iterate pages to get more news data, not actually get all news data
     if is_initial:
-        news = []
-        for page in range(1, 10):
-            pageinfo = {
-                "page": page,
-                "id": f"search:{quote(search_term)}",
-                "channelId": 2,
-                "type": "searchword",
-            }
-            response = requests.get(Constants.NEWS_LINK, params=pageinfo)
-            news.append(response.json()["lists"])
-
-        for result in news:
-            all_news_data.append(result)
+        all_news_data = Crawl.startup(search_term=search_term)
     else:
-        pageinfo = {
-            "page": 1,
-            "id": f"search:{quote(search_term)}",
-            "channelId": 2,
-            "type": "searchword",
-        }
-        response = requests.get(Constants.NEWS_LINK, params=pageinfo)
-        all_news_data = response.json()["lists"]
+        all_news_data = Crawl.get_headline(search_term=search_term,page=Constants.INIT_PAGE_NUM)
     return all_news_data
 
 # add new to database
 def add_new(news_data):
-    session = Session()
-    session.add(NewsArticle(
-        url=news_data["url"],
-        title=news_data["title"],
-        time=news_data["time"],
-        content=" ".join(news_data["content"]),  # 將內容list轉換為字串
-        summary=news_data["summary"],
-        reason=news_data["reason"],
-    ))
-    session.commit()
-    session.close()
-
+    Crawl.save(news=news_data)
+    
 """
     get news and estimate the relavance.
     If relavance is high, function will make a summary
@@ -82,43 +50,19 @@ def get_new(is_initial=False):
     news_data = get_new_info("價格", is_initial=is_initial)
     for news in news_data:
         title = news["title"]
-        GPTinfo = [
-            {
-                "role": "system",
-                "content": "你是一個關聯度評估機器人，請評估新聞標題是否與「民生用品的價格變化」相關，並給予'high'、'medium'、'low'評價。(僅需回答'high'、'medium'、'low'三個詞之一)",
-            },
-            {"role": "user", "content": f"{title}"},
-        ]
+        GPTinfo = [{"role": "system","content": Constants.GPT_RELEVANCE_PROMPT},
+                   {"role": "user", "content": f"{title}"}
+                   ]
         ai = OpenAI(api_key="xxx").chat.completions.create(
             model= Constants.LLM_MODEL,
             messages=GPTinfo,
         )
         relevance = ai.choices[0].message.content
         if relevance == "high":
-            response = requests.get(news["titleLink"])
-            soup = BeautifulSoup(response.text, "html.parser")
-            title = soup.find("h1", class_="article-content__title").text
-            time = soup.find("time", class_="article-content__time").text
-            content_section = soup.find("section", class_="article-content__editor")
-            paragraphs = [
-                p.text
-                for p in content_section.find_all("p")
-                if p.text.strip() != "" and "?" not in p.text
-            ]
-            detailed_news =  {
-                "url": news["titleLink"],
-                "title": title,
-                "time": time,
-                "content": paragraphs,
-            }
-            GPTinfo = [
-                {
-                    "role": "system",
-                    "content": "你是一個新聞摘要生成機器人，請統整新聞中提及的影響及主要原因 (影響、原因各50個字，請以json格式回答 {'影響': '...', '原因': '...'})",
-                },
-                {"role": "user", "content": " ".join(detailed_news["content"])},
-            ]
-
+            detailed_news = Crawl.parse(news["titleLink"])
+            GPTinfo = [{"role": "system","content": Constants.GPT_SUMMARY_PROMPT},
+                       {"role": "user", "content": " ".join(detailed_news["content"])}
+                       ]
             completion = OpenAI(api_key="xxx").chat.completions.create(
                 model=Constants.LLM_MODEL,
                 messages=GPTinfo,

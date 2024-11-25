@@ -73,10 +73,10 @@ class UDNCrawler(NewsCrawlerBase):
         else:
             page_range = [page]
         for num in page_range:
-            headlines.extend(self._fetch_news(num,search_term))
+            headlines.extend(self._fetch_news_headlines(num,search_term))
         return headlines
 
-    def _fetch_news(self, page: int, search_term: str) -> list[Headline]:
+    def _fetch_news_headlines(self, page: int, search_term: str) -> list[Headline]:
         params = self._create_search_params(page,search_term)
         response = self._perform_request(params=params)
         return self._parse_headlines(response)
@@ -126,15 +126,15 @@ class UDNCrawler(NewsCrawlerBase):
             content="\n".join(paragraphs)
         )
 
-    def save(self, news: NewsWithSummary, db: Session):
-        db.add(news)
-        self._commit_changes(db)
-        db.close()
+    def save(self, news: NewsWithSummary, database: Session):
+        database.add(news)
+        self._commit_changes(database)
+        database.close()
 
     @staticmethod
-    def _commit_changes(db: Session):
+    def _commit_changes(database: Session):
         try:
-            db.commit()
+            database.commit()
         except Exception as error:
-            db.rollback()
+            database.rollback()
             raise RuntimeError(f"Saving {error} failed.")
