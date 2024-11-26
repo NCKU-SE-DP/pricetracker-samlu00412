@@ -58,7 +58,7 @@ class TestUDNCrawler(unittest.TestCase):
         """
         mock_get.return_value = mock_response
 
-        news = UDNCrawler.parse("https://udn.com/news/test-news")
+        news = self.scraper.parse("https://udn.com/news/test-news")
         self.assertEqual(news.title, "Test Title")
         self.assertEqual(news.time, "2023-09-08T00:00:00")
         self.assertEqual(news.content, "Content paragraph 1. Content paragraph 2.")

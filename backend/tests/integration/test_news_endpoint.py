@@ -12,6 +12,7 @@ from src.posts.models import NewsArticle
 from src.posts.schemas import NewsSumaryRequestSchema
 from src.users.models import User
 from src.auth.depends import password_context
+from src.crawler.crawler_base import NewsCrawlerBase, Headline
 
 SECRET_KEY = "1892dhianiandowqd0n"
 ALGORITHM = "HS256"
@@ -130,10 +131,10 @@ def test_search_news(mocker):
     mock_openai(mocker, "keywords")
 
     mock_get_new_info = mocker.patch("src.posts.routers.get_new_info", return_value=[
-        {"titleLink": "http://example.com/news1"}
+        Headline(title="Test Title", url="https://udn.com/api/more/testing/news1")
     ])
 
-    mock_get = mocker.patch("src.posts.routers.requests.get", return_value=mocker.Mock(
+    mock_get = mocker.patch("src.posts.crawler.udn_crawler.get", return_value=mocker.Mock(
         text="""
         <html>
         <h1 class="article-content__title">Test Title</h1>
