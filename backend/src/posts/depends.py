@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from src.configs import Constants,user_news_association_table
 from src.posts.models import NewsArticle
-from src.crawler.udn_crawler import UDNCrawler as Crawl
+from src.crawler.udn_crawler import UDNCrawler as Crawler
 
 id_counter = itertools.count(start=Constants.ID_START)
 
@@ -31,14 +31,14 @@ def get_article_upvote_details(article_id, user_id, database):
 def get_new_info(search_term, is_initial=False):
     # iterate pages to get more news data, not actually get all news data
     if is_initial:
-        all_news_data = Crawl.startup(search_term=search_term)
+        all_news_data = Crawler.startup(search_term=search_term)
     else:
-        all_news_data = Crawl.get_headline(search_term=search_term,page=Constants.INIT_PAGE_NUM)
+        all_news_data = Crawler.get_headline(search_term=search_term,page=Constants.INIT_PAGE_NUM)
     return all_news_data
 
 # add new to database
 def add_new(news_data):
-    Crawl.save(news=news_data)
+    Crawler.save(news=news_data)
     
 """
     get news and estimate the relavance.
@@ -59,7 +59,7 @@ def get_new(is_initial=False):
         )
         relevance = ai.choices[0].message.content
         if relevance == "high":
-            detailed_news = Crawl.parse(news["titleLink"])
+            detailed_news = Crawler.parse(news["titleLink"])
             GPTinfo = [{"role": "system","content": Constants.GPT_SUMMARY_PROMPT},
                        {"role": "user", "content": " ".join(detailed_news["content"])}
                        ]
