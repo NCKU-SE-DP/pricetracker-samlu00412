@@ -134,7 +134,7 @@ def test_search_news(mocker):
         Headline(title="Test Title", url="https://udn.com/api/more/testing/news1")
     ])
 
-    mock_get = mocker.patch("src.posts.crawler.udn_crawler.get", return_value=mocker.Mock(
+    mock_get = mocker.patch("src.crawler.udn_crawler.get", return_value=mocker.Mock(
         text="""
         <html>
         <h1 class="article-content__title">Test Title</h1>

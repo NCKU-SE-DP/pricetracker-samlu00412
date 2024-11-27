@@ -34,7 +34,7 @@ def get_new_info(search_term, is_initial=False):
     if is_initial:
         all_news_data = crawler.startup(search_term=search_term)
     else:
-        all_news_data = crawler.get_headline(search_term=search_term,page=Constants.INIT_PAGE_NUM)
+        all_news_data = crawler.get_headline(search_term,page=Constants.INIT_PAGE_NUM)
     return all_news_data
 
 # add new to database
@@ -50,7 +50,7 @@ def add_new(news_data):
 def get_new(is_initial=False):
     news_data = get_new_info("價格", is_initial=is_initial)
     for news in news_data:
-        title = news["title"]
+        title = news.title
         GPTinfo = [{"role": "system","content": Constants.GPT_RELEVANCE_PROMPT},
                    {"role": "user", "content": f"{title}"}
                    ]

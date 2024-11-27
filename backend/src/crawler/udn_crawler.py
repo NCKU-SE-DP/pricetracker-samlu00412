@@ -38,13 +38,14 @@ from sqlalchemy.orm import Session
 from urllib.parse import quote
 
 from src.crawler.crawler_base import NewsCrawlerBase, Headline, News, NewsWithSummary
-
+from src.crawler.exceptions import DomainMismatchException
 
 class UDNCrawler(NewsCrawlerBase):
     CHANNEL_ID = 2
 
     def __init__(self, timeout: int = 5) -> None:
         self.news_website_url = "https://udn.com/api/more"
+        self.news_website_news_child_urls = []
         self.timeout = timeout
 
     def startup(self, search_term: str) -> list[Headline]:
@@ -73,48 +74,45 @@ class UDNCrawler(NewsCrawlerBase):
         else:
             page_range = [page]
         for num in page_range:
-            headlines.extend(self._fetch_news_headlines(num,search_term))
+            headlines.extend(self._fetch_news(num,search_term))
         return headlines
 
-    def _fetch_news_headlines(self, page: int, search_term: str) -> list[Headline]:
-        params = self._create_search_params(page,search_term)
-        response = self._perform_request(params=params)
+    def _fetch_news(self, page: int, search_term: str) -> list[Headline]:
+        response = self._perform_request(self.news_website_url,
+                                         self._create_search_params(page, search_term, "searchword"))
         return self._parse_headlines(response)
 
-    def _create_search_params(self, page: int, search_term: str) -> dict:
+    def _create_search_params(self, page: int, search_term: str, type: str = "searchword") -> dict:
         return {
             "page": page,
             "id": f"search:{quote(search_term)}",
             "channelId": self.CHANNEL_ID,
-            "type": "searchword",
+            "type": type,
         }
 
     def _perform_request(self, url: str | None = None, params: dict | None = None) -> Response:
-        try:
-            response = get(self.news_website_url, params=params, timeout=self.timeout)
-            response.raise_for_status()
-            return response
-        except Exception as error:
-            raise ConnectionError(f"Failed to fetch data: {error}")
+        return get(url, params)
+            
 
     @staticmethod
     def _parse_headlines(response: Response) -> list[Headline]:
-        datas = response.json()
-        if "lists" not in datas:
-            raise ValueError("The response doesn't contain 'lists'")
-        processed_headlines = [{"title": item["title"], "url": item["titleLink"]}
-                               for item in datas["lists"]]
-        return [Headline(**item) for item in processed_headlines]
+        news_list = response.json()["lists"]
+        processed_headlines_list = []
+        for news in news_list:
+            headline = Headline(title=news["title"], url=news["titleLink"])
+            processed_headlines_list.append(headline)
+        return processed_headlines_list
 
     def parse(self, url: str) -> News:
-        response = self._perform_request(url=url,params=None)
-        soup = BeautifulSoup.find(response.content, "html.parser")
-        return self._extract_news(soup,url)
+        response = self._perform_request(url)
+        if not self._is_valid_url(url):
+            raise DomainMismatchException(url)
+        return self._extract_news(BeautifulSoup(response.text, "html.parser"), url)
 
     @staticmethod
     def _extract_news(soup: BeautifulSoup, url: str) -> News:
-        title = soup.find("h1", class_="article-content__title").text.strip()
-        time = soup.find("time", class_="article-content__time").text.strip()
+        title = soup.find("h1", class_="article-content__title").text
+        time = soup.find("time", class_="article-content__time").text
         content_section = soup.find("section", class_="article-content__editor")
         paragraphs = [p.text for p in content_section.find_all("p") 
                       if p.text.strip() != "" and "?" not in p.text
@@ -123,7 +121,7 @@ class UDNCrawler(NewsCrawlerBase):
             title= title,
             url=url,
             time=time,
-            content="\n".join(paragraphs)
+            content=" ".join(paragraphs)
         )
 
     def save(self, news: NewsWithSummary, database: Session):
