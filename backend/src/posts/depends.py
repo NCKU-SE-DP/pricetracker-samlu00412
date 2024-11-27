@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from src.configs import Constants,user_news_association_table
 from src.posts.models import NewsArticle
+
 from src.crawler.udn_crawler import UDNCrawler
 
 id_counter = itertools.count(start=Constants.ID_START)
