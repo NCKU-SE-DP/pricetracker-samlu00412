@@ -12,7 +12,7 @@ from src.posts.models import NewsArticle
 from src.posts.schemas import NewsSumaryRequestSchema
 from src.users.models import User
 from src.auth.depends import password_context
-from src.crawler.crawler_base import NewsCrawlerBase, Headline
+from src.crawler.crawler_base import Headline
 
 SECRET_KEY = "1892dhianiandowqd0n"
 ALGORITHM = "HS256"

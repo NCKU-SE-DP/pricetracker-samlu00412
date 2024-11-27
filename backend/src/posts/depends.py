@@ -31,6 +31,7 @@ def get_article_upvote_details(article_id, user_id, database):
 # get news' information according to search_term, and return the data which the function found.
 def get_new_info(search_term, is_initial=False):
     # iterate pages to get more news data, not actually get all news data
+    # return crawler.get_headline(search_term, (1, 10) if is_initial else 1)
     if is_initial:
         all_news_data = crawler.startup(search_term=search_term)
     else:

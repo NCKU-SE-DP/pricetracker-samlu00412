@@ -63,9 +63,8 @@ async def search_news(request: PromptRequest):
     news_items = get_new_info(keywords, is_initial=False)
     for news in news_items:
         try:
-            detailed_news = crawler.parse(news["titleLink"])
-            detailed_news["content"] = " ".join(detailed_news["content"])
-            detailed_news["id"] = next(id_counter)
+            detailed_news = crawler.validate_and_parse(url=news.url)
+            detailed_news.id = next(id_counter)
             news_list.append(detailed_news)
         except Exception as error_message:
             print(error_message)
