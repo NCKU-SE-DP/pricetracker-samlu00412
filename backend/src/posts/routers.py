@@ -8,13 +8,14 @@ from src.posts.models import NewsArticle
 from src.auth.depends import authenticate_user_token
 from src.posts.depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter
 from src.posts.schemas import PromptRequest,NewsSumaryRequestSchema
-from src.crawler.udn_crawler import UDNCrawler as crawler
+from src.crawler.udn_crawler import UDNCrawler
 
 router = APIRouter(
     prefix="/news",
     tags=["news"],
     responses={404:{"Description" : "Not found"}}
 )
+crawler = UDNCrawler()
 
 @router.get("/news") 
 def read_news(database=Depends(session_opener)):
@@ -64,8 +65,9 @@ async def search_news(request: PromptRequest):
     for news in news_items:
         try:
             detailed_news = crawler.validate_and_parse(url=news.url)
-            detailed_news.id = next(id_counter)
-            news_list.append(detailed_news)
+            json = detailed_news.model_dump()
+            json["id"] = next(id_counter)
+            news_list.append(json)
         except Exception as error_message:
             print(error_message)
     return sorted(news_list, key=lambda time: time["time"], reverse=True)
