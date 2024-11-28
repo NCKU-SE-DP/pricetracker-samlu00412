@@ -6,6 +6,9 @@ on:
       - 'main'
       - 'develop'
       - 'fix/integration-test'
+
+      - 'refactor/crawler-oop-implementation'
+
   pull_request:
     branches:
       - 'main'
@@ -44,6 +47,13 @@ jobs:
         run: |
           cd backend
           pytest tests/integration --cov=src --cov-report=xml --disable-warnings
+
+      - name: Run unit tests (with mock DB)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cd backend
+          pytest tests/unit --cov=src --cov-report=xml --disable-warnings
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v3
