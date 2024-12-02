@@ -1,14 +1,13 @@
 from fastapi import APIRouter,Depends
-from openai import OpenAI
 import json
 
-from src.configs import Constants
 from src.database import session_opener
 from src.posts.models import NewsArticle
 from src.auth.depends import authenticate_user_token
 from src.posts.depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter
 from src.posts.schemas import PromptRequest,NewsSumaryRequestSchema
 from src.crawler.udn_crawler import UDNCrawler
+from src.llm_client.openai_client import OpenAIClient
 
 router = APIRouter(
     prefix="/news",
@@ -16,6 +15,7 @@ router = APIRouter(
     responses={404:{"Description" : "Not found"}}
 )
 crawler = UDNCrawler()
+ChatGPT = OpenAIClient()
 
 @router.get("/news") 
 def read_news(database=Depends(session_opener)):
@@ -48,18 +48,8 @@ def read_user_news(
 async def search_news(request: PromptRequest):
     """Input a prompt, and catch the data which AI finds."""
     news_list = []
-    summary_prompt  = [{
-            "role": "system",
-            "content": "你是一個關鍵字提取機器人，用戶將會輸入一段文字，表示其希望看見的新聞內容，請提取出用戶希望看見的關鍵字，請截取最重要的關鍵字即可，避免出現「新聞」、「資訊」等混淆搜尋引擎的字詞。(僅須回答關鍵字，若有多個關鍵字，請以空格分隔)",
-        },
-        {"role": "user", "content": f"{request.prompt}"}
-    ]
+    keywords = ChatGPT.extract_search_keywords(request.prompt)
 
-    completion = OpenAI(api_key="xxx").chat.completions.create(
-        model=Constants.LLM_MODEL,
-        messages=summary_prompt
-    )
-    keywords = completion.choices[0].message.content
     # should change into simple factory pattern
     news_items = get_new_info(keywords, is_initial=False)
     for news in news_items:
@@ -78,18 +68,8 @@ async def news_summary(
 ):
     """Input a prompt, and make a summary of news."""
     response = {}
-    summary_prompt = [{
-            "role": "system",
-            "content": Constants.GPT_SUMMARY_PROMPT
-        },
-        {"role": "user", "content": f"{payload.content}"},
-    ]
+    result = ChatGPT.generate_summary(payload.content)
 
-    completion = OpenAI(api_key="xxx").chat.completions.create(
-        model=Constants.LLM_MODEL,
-        messages=summary_prompt ,
-    )
-    result = completion.choices[0].message.content
     if result:
         result = json.loads(result)
         response["summary"] = result["影響"]
