@@ -1,18 +1,19 @@
 import json
 import itertools
 from sqlalchemy import delete, insert, select
-from openai import OpenAI
 from sqlalchemy.orm import Session
 
 from src.configs import Constants,user_news_association_table
 from src.posts.models import NewsArticle
 
 from src.crawler.udn_crawler import UDNCrawler
+from src.llm_client.openai_client import OpenAIClient
 
 id_counter = itertools.count(start=Constants.ID_START)
 crawler = UDNCrawler()
+ChatGPT = OpenAIClient()
 
-openai_client = OpenAI(api_key="")
+
 def get_article_upvote_details(article_id, user_id, database):
     num_of_likes = (
         database.query(user_news_association_table)
@@ -53,24 +54,11 @@ def get_new(is_initial=False):
     news_data = get_new_info("價格", is_initial=is_initial)
     for news in news_data:
         title = news.title
-        GPTinfo = [{"role": "system","content": Constants.GPT_RELEVANCE_PROMPT},
-                   {"role": "user", "content": f"{title}"}
-                   ]
-        ai = OpenAI(api_key="xxx").chat.completions.create(
-            model= Constants.LLM_MODEL,
-            messages=GPTinfo,
-        )
-        relevance = ai.choices[0].message.content
+        relevance = ChatGPT.evaluate_relevance(title)
+
         if relevance == "high":
             detailed_news = crawler.parse(news["titleLink"])
-            GPTinfo = [{"role": "system","content": Constants.GPT_SUMMARY_PROMPT},
-                       {"role": "user", "content": " ".join(detailed_news["content"])}
-                       ]
-            completion = OpenAI(api_key="xxx").chat.completions.create(
-                model=Constants.LLM_MODEL,
-                messages=GPTinfo,
-            )
-            result = completion.choices[0].message.content
+            result = ChatGPT.generate_summary(" ".join(detailed_news["content"]))
             result = json.loads(result)
             detailed_news["summary"] = result["影響"]
             detailed_news["reason"] = result["原因"]
