@@ -74,7 +74,7 @@ async def news_summary(
     result = ChatGPT.generate_summary(payload.content)
 
     if result:
-        result = json.loads(result)
+        # result = json.loads(result)
         response["summary"] = result["影響"]
         response["reason"] = result["原因"]
     return response

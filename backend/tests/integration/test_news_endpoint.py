@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, StaticPool
 from sqlalchemy.orm import sessionmaker
 import json
 from jose import jwt
-from unittest.mock import Mock,patch
+from unittest.mock import Mock
 
 from src.main import app
 from src.database import Base,session_opener
@@ -113,20 +113,20 @@ def test_read_user_news(test_user, test_token, test_articles):
     assert json_response[1]["is_upvoted"] is False
 
 def mock_openai(mocker, return_content):
-    mock_openai_client = mocker.patch("src.posts.routers.ChatGPT")
+    mock_generate = mocker.patch('src.llm_client.openai_client.OpenAIClient._generate_completion',autospec = True)
+    print('@@@@@@@@')
+    mock_generate.return_value = return_content
+    # mock_message = Mock()
 
-    mock_message = Mock()
-    mock_message.content = return_content
+    # mock_choice = Mock()
+    # mock_choice.message = mock_message
 
-    mock_choice = Mock()
-    mock_choice.message = mock_message
+    # mock_completion = Mock()
+    # mock_completion.choices = [mock_choice]
 
-    mock_completion = Mock()
-    mock_completion.choices = [mock_choice]
+    # mock_openai_client.return_value.chat.completions.create.return_value = mock_completion
 
-    mock_openai_client.return_value.chat.completions.create.return_value = mock_completion
-
-    return mock_openai_client
+    return mock_generate
 
 def test_search_news(mocker):
     mock_openai(mocker, "keywords")
@@ -167,9 +167,9 @@ def test_news_summary(mocker, test_token):
 
     request_body = NewsSumaryRequestSchema(content="Test news content")
     response = client.post("/api/v1/news/news_summary", json=request_body.dict(), headers=headers)
-    json_response = response.json()
-
+    print(type(response), type(request_body.model_dump()),type(response.json()))
     assert response.status_code == 200
+    json_response = response.json()
     assert json_response["summary"] == "test impact"
     assert json_response["reason"] == "test reason"
 
