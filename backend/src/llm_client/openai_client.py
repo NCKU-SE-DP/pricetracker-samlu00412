@@ -1,11 +1,11 @@
-import unittest
-import os
 from openai import OpenAI
-from unittest.mock import patch
 from src.llm_client.base import LLMClientBase,PromptInterface
 from src.configs import Constants
 
 class OpenAIClient(LLMClientBase):
+
+    def __init__(self,api_key:str):
+        self.client = OpenAI(api_key=api_key)
 
     def evaluate_relevance(self,news_title: str) -> str:
         return self._generate_completion(PromptInterface(system_content=Constants.GPT_RELEVANCE_PROMPT,
@@ -22,9 +22,9 @@ class OpenAIClient(LLMClientBase):
 
     def _generate_completion(self, prompt: PromptInterface) -> str:
         GPTprompt = prompt._make_prompt()
-        completion = OpenAI(api_key=Constants.API_KEY).chat.completions.create(
+        completion = self.client.chat.completions.create(
             model=Constants.LLM_MODEL,
-            messages=GPTprompt,
+            messages=GPTprompt
         )
         return completion.choices[0].message.content
         

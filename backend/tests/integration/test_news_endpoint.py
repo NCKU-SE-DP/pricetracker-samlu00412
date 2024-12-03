@@ -112,7 +112,7 @@ def test_read_user_news(test_user, test_token, test_articles):
     assert json_response[1]["is_upvoted"] is False
 
 def mock_openai(mocker, return_content):
-    mock_openai_client = mocker.patch("src.posts.routers.OpenAI")
+    mock_openai_client = mocker.patch("src.posts.routers.ChatGPT")
 
     mock_message = Mock()
     mock_message.content = return_content
@@ -166,9 +166,9 @@ def test_news_summary(mocker, test_token):
 
     request_body = NewsSumaryRequestSchema(content="Test news content")
     response = client.post("/api/v1/news/news_summary", json=request_body.dict(), headers=headers)
+    json_response = response.json()
 
     assert response.status_code == 200
-    json_response = response.json()
     assert json_response["summary"] == "test impact"
     assert json_response["reason"] == "test reason"
 
@@ -178,6 +178,7 @@ def test_upvote_article(test_user_and_articles, test_token):
     headers = {"Authorization": f"Bearer {test_token}"}
 
     response = client.post(f"/api/v1/news/{articles[0].id}/upvote", headers=headers)
+    
     assert response.status_code == 200
     assert response.json()["message"] == "Article upvoted"
 
