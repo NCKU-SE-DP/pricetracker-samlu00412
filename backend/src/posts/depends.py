@@ -12,7 +12,7 @@ from src.llm_client.openai_client import OpenAIClient
 
 id_counter = itertools.count(start=Constants.ID_START)
 crawler = UDNCrawler()
-ChatGPT = OpenAIClient()
+ChatGPT = OpenAIClient(api_key=Constants.API_KEY)
 
 
 def get_article_upvote_details(article_id, user_id, database):

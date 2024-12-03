@@ -9,6 +9,7 @@ from src.posts.schemas import PromptRequest,NewsSumaryRequestSchema
 
 from src.crawler.udn_crawler import UDNCrawler
 from src.llm_client.openai_client import OpenAIClient
+from src.configs import Constants
 
 
 router = APIRouter(
@@ -17,7 +18,7 @@ router = APIRouter(
     responses={404:{"Description" : "Not found"}}
 )
 crawler = UDNCrawler()
-ChatGPT = OpenAIClient()
+ChatGPT = OpenAIClient(api_key=Constants.API_KEY)
 
 @router.get("/news") 
 def read_news(database=Depends(session_opener)):
