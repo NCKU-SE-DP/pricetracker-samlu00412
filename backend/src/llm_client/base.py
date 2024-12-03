@@ -1,5 +1,6 @@
 import abc
 from pydantic import BaseModel, Field
+from typing import Optional
 
 
 class MessagePassingInterfaceExample(BaseModel):
@@ -12,10 +13,11 @@ class MessagePassingInterfaceExample(BaseModel):
 class PromptInterface(BaseModel):
     system_content: str = Field(...)
     user_content: str = Field(...)
-
-    def _make_prompt(self):
-        return [{"role": "system", "content": self.system_content},
-                {"role": "user", "content": self.user_content}]
+    
+    @property
+    def make_prompt(self):
+        return [{"role": "system", "content": f"{self.system_content}"},
+                {"role": "user", "content": f"{self.user_content}"}]
 
 class LLMClientBase(metaclass=abc.ABCMeta):
     
@@ -25,7 +27,7 @@ class LLMClientBase(metaclass=abc.ABCMeta):
         return NotImplemented
     
     @abc.abstractmethod
-    def generate_summary(self,prompt: str) -> str:
+    def generate_summary(self,prompt: str) -> Optional[dict[str, str]]:
         
         return NotImplemented
     
