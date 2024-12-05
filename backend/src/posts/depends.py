@@ -2,7 +2,7 @@ import json
 import itertools
 from sqlalchemy import delete, insert, select
 from sqlalchemy.orm import Session
-
+from openai import OpenAI
 from src.configs import Constants,user_news_association_table
 from src.posts.models import NewsArticle
 
