@@ -2,6 +2,7 @@ import unittest
 import os
 from unittest.mock import patch
 from src.llm_client.openai_client import OpenAIClient
+from src.llm_client.base import PromptInterface
 from src.configs import Constants
 
 # 除非確認要使用真實的API進行測試(當然會因此擁有額外的開銷)，否則將RUN_REAL_API_TESTS設置為False
@@ -41,13 +42,8 @@ class TestOpenAIClient(unittest.TestCase):
         self.assertEqual(result, 'high')
 
         mock_generate_text.assert_called_once_with(
-            messages=[
-                {
-                    "role": "system",
-                    "content": Constants.GPT_RELEVANCE_PROMPT,
-                },
-                {"role": "user", "content": "食品價格上漲"},
-            ]
+            PromptInterface(system_content=Constants.GPT_RELEVANCE_PROMPT,
+                            user_content="食品價格上漲")
         )
 
     @patch('src.llm_client.openai_client.OpenAIClient._generate_completion')
@@ -56,16 +52,11 @@ class TestOpenAIClient(unittest.TestCase):
 
         result = self.client.generate_summary("一篇新聞內容")
 
-        self.assertEqual(result, '{"影響": "影響描述", "原因": "原因描述"}')
+        self.assertEqual(result, {"影響": "影響描述", "原因": "原因描述"})
 
         mock_generate_text.assert_called_once_with(
-            messages=[
-                {
-                    "role": "system",
-                    "content": Constants.GPT_SUMMARY_PROMPT,
-                },
-                {"role": "user", "content": "一篇新聞內容"},
-            ]
+            PromptInterface(system_content=Constants.GPT_SUMMARY_PROMPT,
+                            user_content="一篇新聞內容")
         )
 
     @patch('src.llm_client.openai_client.OpenAIClient._generate_completion')
@@ -77,13 +68,8 @@ class TestOpenAIClient(unittest.TestCase):
         self.assertEqual(result, '食品 價格')
 
         mock_generate_text.assert_called_once_with(
-            messages=[
-                {
-                    "role": "system",
-                    "content": "你是一個關鍵字提取機器人，用戶將會輸入一段文字，表示其希望看見的新聞內容，請提取出用戶希望看見的關鍵字，請截取最重要的關鍵字即可，避免出現「新聞」、「資訊」等混淆搜尋引擎的字詞。(僅須回答關鍵字，若有多個關鍵字，請以空格分隔)",
-                },
-                {"role": "user", "content": "一段希望看到的新聞文字"},
-            ]
+            PromptInterface(system_content=Constants.GPT_EXTRACT_PROMPT,
+                            user_content="一段希望看到的新聞文字")
         )
 
 
