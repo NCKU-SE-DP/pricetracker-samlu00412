@@ -4,7 +4,6 @@ from sqlalchemy import create_engine, StaticPool
 from sqlalchemy.orm import sessionmaker
 import json
 from jose import jwt
-from unittest.mock import Mock
 
 from src.main import app
 from src.database import Base,session_opener
@@ -113,9 +112,9 @@ def test_read_user_news(test_user, test_token, test_articles):
 
 def mock_openai(mocker, return_content):
     mock_generate = mocker.patch('src.llm_client.openai_client.OpenAIClient._generate_completion',autospec = True)
-    print('@@@@@@@@')
     mock_generate.return_value = return_content
     # mock_message = Mock()
+
 
     # mock_choice = Mock()
     # mock_choice.message = mock_message
@@ -166,7 +165,7 @@ def test_news_summary(mocker, test_token):
 
     request_body = NewsSumaryRequestSchema(content="Test news content")
     response = client.post("/api/v1/news/news_summary", json=request_body.dict(), headers=headers)
-    print(type(response), type(request_body.model_dump()),type(response.json()))
+    # print(type(response), type(request_body.model_dump()),type(response.json()))
     assert response.status_code == 200
     json_response = response.json()
     assert json_response["summary"] == "test impact"
