@@ -1,5 +1,4 @@
 from fastapi import APIRouter,Depends
-import json
 
 from src.database import session_opener
 from src.posts.models import NewsArticle
