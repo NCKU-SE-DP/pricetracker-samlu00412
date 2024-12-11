@@ -8,6 +8,7 @@ on:
       - 'fix/integration-test'
       - 'refactor/crawler-oop-implementation'
       - 'refactor/llm_client'
+      - 'refactor/llm-client-template-methods-pattern'
   pull_request:
     branches:
       - 'main'
