@@ -8,7 +8,7 @@ from jose import jwt
 from src.main import app
 from src.database import Base,session_opener
 from src.posts.models import NewsArticle
-from src.posts.schemas import NewsSumaryRequestSchema
+from src.posts.schemas import NewsSumaryRequestSchemaWithModel
 from src.users.models import User
 from src.auth.depends import password_context
 from src.crawler.crawler_base import Headline
@@ -163,7 +163,7 @@ def test_news_summary(mocker, test_token):
     openai_response = json.dumps({"影響": "test impact", "原因": "test reason"})
     mock_openai(mocker, openai_response)
 
-    request_body = NewsSumaryRequestSchema(content="Test news content")
+    request_body = NewsSumaryRequestSchemaWithModel(content="Test news content")
     response = client.post("/api/v1/news/news_summary", json=request_body.dict(), headers=headers)
     # print(type(response), type(request_body.model_dump()),type(response.json()))
     assert response.status_code == 200

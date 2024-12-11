@@ -3,11 +3,12 @@ from fastapi import APIRouter,Depends
 from src.database import session_opener
 from src.posts.models import NewsArticle
 from src.auth.depends import authenticate_user_token
-from src.posts.depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter
-from src.posts.schemas import PromptRequest,NewsSumaryRequestSchema
+from src.posts.depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter,openai,anthropic
+from src.posts.schemas import PromptRequest,NewsSumaryRequestSchemaWithModel
 from src.crawler.udn_crawler import UDNCrawler
 from src.llm_client.openai_client import OpenAIClient
 from src.configs import Constants
+
 
 router = APIRouter(
     prefix="/news",
@@ -15,7 +16,7 @@ router = APIRouter(
     responses={404:{"Description" : "Not found"}}
 )
 crawler = UDNCrawler()
-ChatGPT = OpenAIClient(api_key=Constants.API_KEY)
+
 
 @router.get("/news") 
 def read_news(database=Depends(session_opener)):
@@ -48,7 +49,7 @@ def read_user_news(
 async def search_news(request: PromptRequest):
     """Input a prompt, and catch the data which AI finds."""
     news_list = []
-    keywords = ChatGPT.extract_search_keywords(request.prompt)
+    keywords = openai.extract_search_keywords(request.prompt)
 
     # should change into simple factory pattern
     news_items = get_new_info(keywords, is_initial=False)
@@ -64,12 +65,32 @@ async def search_news(request: PromptRequest):
 
 @router.post("/news_summary")
 async def news_summary(
-        payload: NewsSumaryRequestSchema, user=Depends(authenticate_user_token)
+        payload: NewsSumaryRequestSchemaWithModel, user=Depends(authenticate_user_token)
 ):
     """Input a prompt, and make a summary of news."""
     response = {}
-    result = ChatGPT.generate_summary(payload.content)
+    result = openai.generate_summary(payload.content)
 
+    if result:
+        response["summary"] = result["影響"]
+        response["reason"] = result["原因"]
+    return response
+
+@router.post("/news_summary_with_custom_model")
+async def news_summary_with_custom_model(
+        payload: NewsSumaryRequestSchemaWithModel, user=Depends(authenticate_user_token)
+):
+    response = {}
+
+    if not payload.ai_model:
+        return {"message": "Please select a model."}
+    elif payload.ai_model.lower() == "openai":
+        result = openai.generate_summary(payload.content)
+    elif payload.ai_model.lower() == "anthropic" or payload.ai_model.lower() == "claude":
+        result = anthropic.generate_summary(payload.content)
+    else:
+        return {"message": "Invalid model."}
+    
     if result:
         response["summary"] = result["影響"]
         response["reason"] = result["原因"]
