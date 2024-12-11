@@ -24,7 +24,7 @@ class TestOpenAIClient(unittest.TestCase):
 
     @unittest.skipIf(not RUN_REAL_API_TESTS, "模擬 API 呼叫，跳過真實測試")
     def test_generate_summary_real(self):
-        result = self.client.generate_summary("一篇有關食品價格的新聞內容")
+        result = self.client.generate_summary("中共解放軍近日在「未宣布」軍演的狀況下，仍大量調動機艦，我國防部10日證實，直言共軍數量非常驚人，散佈位置在第一島鏈與第二島鏈間。對此，我國安高層表示，這是1996年以來最大規模海上軍事行動，參加單位超過90艘，且部署時間應長達70天之久")
         self.assertIn("影響", result)
         self.assertIn("原因", result)
 
