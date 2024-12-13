@@ -8,7 +8,7 @@ on:
       - 'fix/integration-test'
 
       - 'refactor/crawler-oop-implementation'
-
+      - 'refactor/llm_client'
   pull_request:
     branches:
       - 'main'
@@ -48,7 +48,7 @@ jobs:
           cd backend
           pytest tests/integration --cov=src --cov-report=xml --disable-warnings
 
-      - name: Run unit tests (with mock DB)
+      - name: Run unit tests
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
