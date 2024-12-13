@@ -59,6 +59,10 @@ async def search_news(request: PromptRequest):
             json = detailed_news.model_dump()
             json["id"] = next(id_counter)
             news_list.append(json)
+            detailed_news = crawler.validate_and_parse(url=news.url)
+            json = detailed_news.model_dump()
+            json["id"] = next(id_counter)
+            news_list.append(json)
         except Exception as error_message:
             print(error_message)
     return sorted(news_list, key=lambda time: time["time"], reverse=True)

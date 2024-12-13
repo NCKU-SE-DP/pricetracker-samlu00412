@@ -171,6 +171,7 @@ def test_upvote_article(test_user_and_articles, test_token):
 
     response = client.post(f"/api/v1/news/{articles[0].id}/upvote", headers=headers)
     
+    
     assert response.status_code == 200
     assert response.json()["message"] == "Article upvoted"
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from abc import ABC,abstractmethod,ABCMeta
 from pydantic import BaseModel, Field
 from typing import Optional
@@ -10,6 +11,13 @@ class Models:
     OPENAI = "openai:gpt-3.5-turbo"
     ANTHROPIC = "anthropic:claude-3-5-sonnet-20240620"
 
+=======
+import abc
+from pydantic import BaseModel, Field
+from typing import Optional
+
+
+>>>>>>> develop
 class MessagePassingInterfaceExample(BaseModel):
     key: str = Field(
         default=...,
@@ -26,14 +34,37 @@ class PromptInterface(BaseModel):
         return [{"role": "system", "content": f"{self.system_content}"},
                 {"role": "user", "content": f"{self.user_content}"}]
 
+<<<<<<< HEAD
 class LLMClientBase(metaclass=ABCMeta):
     client: ai.Client = ...
     
     @abstractmethod
+=======
+class LLMClientBase(metaclass=abc.ABCMeta):
+    
+    @abc.abstractmethod
+    def evaluate_relevance(self,news_title: str) -> str:
+        
+        return NotImplemented
+    
+    @abc.abstractmethod
+    def generate_summary(self,prompt: str) -> Optional[dict[str, str]]:
+        
+        return NotImplemented
+    
+    
+    @abc.abstractmethod
+    def extract_search_keywords(self,keywords: str) -> str:
+        
+        return NotImplemented
+    
+    @abc.abstractmethod
+>>>>>>> develop
     def _generate_completion(self, prompt: PromptInterface) -> str:
         
         return NotImplemented
     
+<<<<<<< HEAD
 class LLMClientTemplate(LLMClientBase, ABC):
     def __init__(self, api_key: str):
         self.api_key = api_key
@@ -68,6 +99,9 @@ class LLMClientTemplate(LLMClientBase, ABC):
         messages=prompt.make_prompt
         )
         return response.choices[0].message.content
+=======
+    
+>>>>>>> develop
     
 
     
