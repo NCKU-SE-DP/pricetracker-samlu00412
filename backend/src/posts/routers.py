@@ -6,8 +6,7 @@ from src.auth.depends import authenticate_user_token
 from src.posts.depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter,openai,anthropic
 from src.posts.schemas import PromptRequest,NewsSumaryRequestSchemaWithModel
 from src.crawler.udn_crawler import UDNCrawler
-from src.llm_client.openai_client import OpenAIClient
-from src.configs import Constants
+
 
 
 router = APIRouter(
@@ -55,10 +54,6 @@ async def search_news(request: PromptRequest):
     news_items = get_new_info(keywords, is_initial=False)
     for news in news_items:
         try:
-            detailed_news = crawler.validate_and_parse(url=news.url)
-            json = detailed_news.model_dump()
-            json["id"] = next(id_counter)
-            news_list.append(json)
             detailed_news = crawler.validate_and_parse(url=news.url)
             json = detailed_news.model_dump()
             json["id"] = next(id_counter)
