@@ -17,7 +17,7 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      - MODULE_NAME=app.main
+      - MODULE_NAME=backend.src.main
       - VARIABLE_NAME=app
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}

@@ -2,7 +2,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import sessionmaker
 from fastapi import FastAPI
 
-from src.posts.depends import get_new
+from src.posts.services import get_new
 from src.posts.models import NewsArticle
 from src.posts.routers import router as news_router
 

@@ -3,7 +3,7 @@ from fastapi import APIRouter,Depends
 from src.database import session_opener
 from src.posts.models import NewsArticle
 from src.auth.depends import authenticate_user_token
-from src.posts.depends import get_article_upvote_details,get_new_info,toggle_upvote,id_counter,openai,anthropic
+from src.posts.services import get_article_upvote_details,get_new_info,toggle_upvote,id_counter,openai,anthropic
 from src.posts.schemas import PromptRequest,NewsSumaryRequestSchemaWithModel
 from src.crawler.udn_crawler import UDNCrawler
 
