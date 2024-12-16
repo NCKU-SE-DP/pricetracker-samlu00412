@@ -1,4 +1,4 @@
-from abc import ABC,abstractmethod,ABCMeta
+from abc import ABC, abstractmethod, ABCMeta
 from pydantic import BaseModel, Field
 from typing import Optional
 import aisuite as ai
@@ -31,7 +31,6 @@ class LLMClientBase(metaclass=ABCMeta):
     client: ai.Client = ...
     
     @abstractmethod
-
     def _generate_completion(self, prompt: PromptInterface) -> str:
         
         return NotImplemented
@@ -48,11 +47,11 @@ class LLMClientTemplate(LLMClientBase, ABC):
         pass
 
     def evaluate_relevance(self,news_title: str) -> str:
-        return self._generate_completion(PromptInterface(system_content=Constants.GPT_RELEVANCE_PROMPT,
+        return self._generate_completion(PromptInterface(system_content=Constants.Prompt.GPT_RELEVANCE_PROMPT,
                                                         user_content=news_title))
     
     def generate_summary(self,prompt: str) -> Optional[dict[str, str]]:
-        response = self._generate_completion(PromptInterface(system_content=Constants.GPT_SUMMARY_PROMPT,
+        response = self._generate_completion(PromptInterface(system_content=Constants.Prompt.GPT_SUMMARY_PROMPT,
                                                         user_content=prompt))
         try:
             return json.loads(response)
@@ -60,7 +59,7 @@ class LLMClientTemplate(LLMClientBase, ABC):
             raise ValueError(f"Failed to generate a summary based on the prompt: {response}")
 
     def extract_search_keywords(self,keywords: str) -> str:
-        return self._generate_completion(PromptInterface(system_content=Constants.GPT_EXTRACT_PROMPT,
+        return self._generate_completion(PromptInterface(system_content=Constants.Prompt.GPT_EXTRACT_PROMPT,
                                                         user_content=keywords))
     
     def _generate_completion(self, prompt: PromptInterface)-> str:

@@ -27,7 +27,7 @@ def authenticate_user_token(
     token = Depends(oauth2_scheme),
     database = Depends(session_opener)
 ):
-    payload = jwt.decode(token, Constants.KEY, algorithms=[Constants.ENCODING_ALGO])
+    payload = jwt.decode(token, Constants.Auth.KEY, algorithms=[Constants.Auth.ENCODING_ALGO])
     return database.query(User).filter(User.username == payload.get("sub")).first()
 
 def create_access_token(data, expires_delta=None):

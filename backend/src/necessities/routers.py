@@ -14,6 +14,6 @@ def get_necessities_prices(
         category=Query(None), commodity=Query(None)
 ):
     return requests.get(
-        Constants.PRICES_INFO,
+        Constants.Link.PRICES_INFO_LINK,
         params={"CategoryName": category, "Name": commodity}
     ).json()
