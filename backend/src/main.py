@@ -11,7 +11,7 @@ from src.services import Background_scheduler
 
 from src.users.routers import router as users_router
 
-from src.necessities.routers import router as necessities_router
+from src.prices.routers import router as pricess_router
 
 
 app = FastAPI()
@@ -19,7 +19,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 app.include_router(users_router,prefix="/api/v1")
 app.include_router(news_router,prefix="/api/v1")
-app.include_router(necessities_router,prefix="/api/v1")
+app.include_router(pricess_router,prefix="/api/v1")
 
 
 app.add_middleware(
