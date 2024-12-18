@@ -45,6 +45,7 @@ def create_new_user(user: UserAuthSchema, database: Session = Depends(session_op
     hashed_password = password_context.hash(user.password)
     database_user = User(username=user.username, hashed_password=hashed_password)
     database.add(database_user)
+    database.commit()
     database.refresh(database_user)
     logging.debug(f"Created user: {user.username}")
     return database_user

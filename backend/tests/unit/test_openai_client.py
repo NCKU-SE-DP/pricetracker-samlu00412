@@ -42,7 +42,7 @@ class TestOpenAIClient(unittest.TestCase):
         self.assertEqual(result, 'high')
 
         mock_generate_text.assert_called_once_with(
-            PromptInterface(system_content=Constants.GPT_RELEVANCE_PROMPT,
+            PromptInterface(system_content=Constants.Prompt.GPT_RELEVANCE_PROMPT,
                             user_content="食品價格上漲")
         )
 
@@ -55,7 +55,7 @@ class TestOpenAIClient(unittest.TestCase):
         self.assertEqual(result, {"影響": "影響描述", "原因": "原因描述"})
 
         mock_generate_text.assert_called_once_with(
-            PromptInterface(system_content=Constants.GPT_SUMMARY_PROMPT,
+            PromptInterface(system_content=Constants.Prompt.GPT_SUMMARY_PROMPT,
                             user_content="一篇新聞內容")
         )
 
@@ -68,7 +68,7 @@ class TestOpenAIClient(unittest.TestCase):
         self.assertEqual(result, '食品 價格')
 
         mock_generate_text.assert_called_once_with(
-            PromptInterface(system_content=Constants.GPT_EXTRACT_PROMPT,
+            PromptInterface(system_content=Constants.Prompt.GPT_EXTRACT_PROMPT,
                             user_content="一段希望看到的新聞文字")
         )
 

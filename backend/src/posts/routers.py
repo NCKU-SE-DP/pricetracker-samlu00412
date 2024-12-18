@@ -96,12 +96,15 @@ async def search_news(request: PromptRequest):
     for news in news_items:
         try:
             detailed_news = crawler.validate_and_parse(url=news.url)
+            json = detailed_news.model_dump()
+            json["id"] = next(id_counter)
+            news_list.append(json)
         except Exception as err:
             logging.error(f"Failed to validate and parse news: {err}")
             capture_exception(err)
             continue
-        detailed_news.id = next(id_counter)
-        news_list.append(detailed_news)
+        #detailed_news.id = next(id_counter)
+        #news_list.append(detailed_news)
         
     return sorted(news_list, key=lambda time: time["time"], reverse=True)
 
@@ -157,6 +160,8 @@ def upvote_article(
     """Update the state of upvoted article"""
     logging.debug(f"{user.id} accessed /api/v1/news/{id}/upvote")
     message = toggle_upvote(id, user.id, database)
+    if "Failed" in message:
+        return HTTPException(status_code=400, detail=message)
     return {"message": message}
 
 
