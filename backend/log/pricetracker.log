@@ -1,0 +1,99 @@
+2024-12-18 18:04:35,790 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-18 18:04:35,806 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-18 18:04:35,811 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00517s] ()
+2024-12-18 18:04:35,830 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-18 18:04:35,835 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-18 18:04:35,837 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-18 18:04:35,839 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-18 18:04:35,842 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-18 18:04:35,845 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-18 19:44:35.834351+00:00 (in 5999.988687 seconds)
+2024-12-18 18:06:15,871 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-18 18:06:15,873 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-18 18:06:15,874 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-18 18:06:20,508 - root : [DEBUG] Initialisation started.
+2024-12-18 18:06:20,518 - root : [DEBUG] News router (/news) initialised
+2024-12-18 18:06:20,522 - root : [DEBUG] Users router (/router) initialised
+2024-12-18 18:06:20,524 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-18 18:06:20,534 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-18 18:06:20,541 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-18 18:06:20,543 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00243s] ()
+2024-12-18 18:06:20,557 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-18 18:06:20,562 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-18 18:06:20,568 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-18 18:06:20,570 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-18 18:06:20,574 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-18 18:06:20,574 - root : [DEBUG] Background scheduler started.
+2024-12-18 18:06:20,575 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-18 19:46:20.562634+00:00 (in 5999.987071 seconds)
+2024-12-18 18:06:20,577 - root : [INFO] PriceTracker backend has started.
+2024-12-18 18:07:36,242 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): o4508454796066816.ingest.us.sentry.io:443
+2024-12-18 18:07:36,417 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-18 18:07:36,470 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-18 18:08:31,966 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:31,967 - multipart.multipart : [DEBUG] Calling on_field_name with data[0:10]
+2024-12-18 18:08:31,969 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:31,970 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:31,970 - multipart.multipart : [DEBUG] Calling on_field_name with data[12:20]
+2024-12-18 18:08:31,971 - multipart.multipart : [DEBUG] Calling on_field_data with data[21:27]
+2024-12-18 18:08:31,972 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:31,973 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:31,974 - multipart.multipart : [DEBUG] Calling on_field_name with data[28:36]
+2024-12-18 18:08:31,975 - multipart.multipart : [DEBUG] Calling on_field_data with data[37:43]
+2024-12-18 18:08:31,976 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:31,977 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:31,978 - multipart.multipart : [DEBUG] Calling on_field_name with data[44:49]
+2024-12-18 18:08:31,978 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:31,979 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:31,979 - multipart.multipart : [DEBUG] Calling on_field_name with data[51:60]
+2024-12-18 18:08:31,980 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:31,981 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:31,981 - multipart.multipart : [DEBUG] Calling on_field_name with data[62:75]
+2024-12-18 18:08:31,982 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:31,982 - multipart.multipart : [DEBUG] Calling on_end with no data
+2024-12-18 18:08:31,998 - root : [DEBUG] Login initialised: string
+2024-12-18 18:08:32,000 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-18 18:08:32,006 - sqlalchemy.engine.Engine : [INFO] SELECT users.id AS users_id, users.username AS users_username, users.hashed_password AS users_hashed_password 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2024-12-18 18:08:32,007 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00172s] ('string', 1, 0)
+2024-12-18 18:08:32,037 - passlib.handlers.bcrypt : [DEBUG] detected 'bcrypt' backend, version '4.0.1'
+2024-12-18 18:08:32,039 - passlib.handlers.bcrypt : [DEBUG] 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-12-18 18:08:32,338 - root : [DEBUG] Logged in: string
+2024-12-18 18:08:32,340 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-18 18:08:32,410 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-18 18:08:46,213 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:46,214 - multipart.multipart : [DEBUG] Calling on_field_name with data[0:10]
+2024-12-18 18:08:46,214 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:46,216 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:46,217 - multipart.multipart : [DEBUG] Calling on_field_name with data[12:20]
+2024-12-18 18:08:46,218 - multipart.multipart : [DEBUG] Calling on_field_data with data[21:26]
+2024-12-18 18:08:46,219 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:46,219 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:46,220 - multipart.multipart : [DEBUG] Calling on_field_name with data[27:35]
+2024-12-18 18:08:46,221 - multipart.multipart : [DEBUG] Calling on_field_data with data[36:42]
+2024-12-18 18:08:46,222 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:46,223 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:46,224 - multipart.multipart : [DEBUG] Calling on_field_name with data[43:48]
+2024-12-18 18:08:46,225 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:46,225 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:46,227 - multipart.multipart : [DEBUG] Calling on_field_name with data[50:59]
+2024-12-18 18:08:46,228 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:46,229 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-18 18:08:46,230 - multipart.multipart : [DEBUG] Calling on_field_name with data[61:74]
+2024-12-18 18:08:46,231 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-18 18:08:46,232 - multipart.multipart : [DEBUG] Calling on_end with no data
+2024-12-18 18:08:46,234 - root : [DEBUG] Login initialised: strin
+2024-12-18 18:08:46,236 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-18 18:08:46,239 - sqlalchemy.engine.Engine : [INFO] SELECT users.id AS users_id, users.username AS users_username, users.hashed_password AS users_hashed_password 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2024-12-18 18:08:46,239 - sqlalchemy.engine.Engine : [INFO] [cached since 14.23s ago] ('strin', 1, 0)
+2024-12-18 18:08:46,245 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-18 18:08:46,346 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-18 18:08:46,403 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-18 18:12:04,236 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None

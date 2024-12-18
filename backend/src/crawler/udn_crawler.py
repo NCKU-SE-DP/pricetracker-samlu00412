@@ -35,10 +35,11 @@ UDNCrawler Methods:
 from requests import Response,get
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
+from sentry_sdk import capture_exception
 from urllib.parse import quote
 
 from src.crawler.crawler_base import NewsCrawlerBase, Headline, News, NewsWithSummary
-from src.crawler.exceptions import DomainMismatchException
+from src.crawler.exceptions import DomainMismatchException,ExtractionException,ParseException
 
 class UDNCrawler(NewsCrawlerBase):
     CHANNEL_ID = 2
@@ -135,4 +136,6 @@ class UDNCrawler(NewsCrawlerBase):
             database.commit()
         except Exception as error:
             database.rollback()
+            capture_exception(error)
             raise RuntimeError(f"Saving {error} failed.")
+            

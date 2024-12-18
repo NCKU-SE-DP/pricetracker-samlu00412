@@ -19,13 +19,20 @@ class Constants:
         API_KEY = "xxx"
     class Auth:
         KEY = '1892dhianiandowqd0n'
-        ENCODING_ALGO="HS256"
+        ENCODING_ALGO = "HS256"
+        ERROR_CODE = 401
+        DEFAULT_EXPIRED_TIME = 15
     class User:
         MAX_USERNAME_LENGTH = 50
         MAX_PASSWORD_LENGTH = 200
+        ERROR_CODE = 400
     class News:
         INIT_PAGE_NUM = 1
         ID_START = 1000000
+    class System:
+        ERROR_CODE = 500
+    class Scheduler:
+        DEFAULT_JOB_TIME = 100
 
 user_news_association_table = Table(
     "user_news_upvotes",

@@ -4,19 +4,12 @@ from typing import Optional
 import aisuite as ai
 import json
 from src.configs import Constants
+from src.llm_client.exceptions import EvaluationFailure
 
 
 class Models:
     OPENAI = "openai:gpt-3.5-turbo"
     ANTHROPIC = "anthropic:claude-3-5-sonnet-20240620"
-
-
-class MessagePassingInterfaceExample(BaseModel):
-    key: str = Field(
-        default=...,
-        example="example",
-        description="description"
-    )
     
 class PromptInterface(BaseModel):
     system_content: str = Field(...)
@@ -32,7 +25,6 @@ class LLMClientBase(metaclass=ABCMeta):
     
     @abstractmethod
     def _generate_completion(self, prompt: PromptInterface) -> str:
-        
         return NotImplemented
     
 class LLMClientTemplate(LLMClientBase, ABC):
@@ -63,12 +55,12 @@ class LLMClientTemplate(LLMClientBase, ABC):
                                                         user_content=keywords))
     
     def _generate_completion(self, prompt: PromptInterface)-> str:
-
-        response = self.client.chat.completions.create(
-        model=self.model,
-        messages=prompt.make_prompt
-        )
-        return response.choices[0].message.content
-    
-
-    
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=prompt.make_prompt
+            )
+            return response.choices[0].message.content
+        except Exception as error:
+            raise EvaluationFailure(f"An API error occurred: {error}")
+        
