@@ -4,14 +4,16 @@ from sqlalchemy import delete, insert, select
 from sqlalchemy.orm import Session
 from src.configs import Constants,user_news_association_table
 from src.posts.models import NewsArticle
-
 from src.crawler.udn_crawler import UDNCrawler
 from src.crawler.crawler_base import Headline
 from src.llm_client.openai_client import OpenAIClient
+from src.llm_client.anthropic import AnthropicClient
 
 id_counter = itertools.count(start=Constants.ID_START)
 crawler = UDNCrawler()
-ChatGPT = OpenAIClient(api_key=Constants.API_KEY)
+
+openai = OpenAIClient(api_key=Constants.OPENAI_TOKEN)
+anthropic = AnthropicClient(api_key=Constants.ANTHROPIC_TOKEN)
 
 
 def get_article_upvote_details(article_id, user_id, database):
@@ -48,14 +50,14 @@ def get_new(is_initial=False):
     news_data = get_new_info("價格", is_initial=is_initial)
     for news in news_data:
         title = news.title
-        relevance = ChatGPT.evaluate_relevance(title)
+        relevance = openai.evaluate_relevance(title)
 
         if relevance == "high":
             summarize_new(news)
             
 def summarize_new(news: Headline):
-    detailed_news = crawler.parse(news["titleLink"])
-    result = ChatGPT.generate_summary(" ".join(detailed_news["content"]))
+    detailed_news = crawler.validate_and_parse(news["titleLink"])
+    result = openai.generate_summary(" ".join(detailed_news["content"]))
     result = json.loads(result)
     detailed_news["summary"] = result["影響"]
     detailed_news["reason"] = result["原因"]
