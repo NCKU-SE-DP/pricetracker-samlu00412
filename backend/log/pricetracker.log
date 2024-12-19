@@ -2016,3 +2016,173 @@ WHERE user_news_upvotes.news_articles_id = ? AND user_news_upvotes.user_id = ?
 2024-12-19 05:09:17,420 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
 2024-12-19 05:09:17,482 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
 2024-12-19 05:09:17,482 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:54,691 - root : [DEBUG] Initialisation started.
+2024-12-19 18:43:54,709 - root : [DEBUG] News router (/news) initialised
+2024-12-19 18:43:54,718 - root : [DEBUG] Users router (/router) initialised
+2024-12-19 18:43:54,721 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-19 18:43:54,815 - root : [DEBUG] Initialisation started.
+2024-12-19 18:43:54,815 - root : [DEBUG] Initialisation started.
+2024-12-19 18:43:54,829 - root : [DEBUG] News router (/news) initialised
+2024-12-19 18:43:54,829 - root : [DEBUG] News router (/news) initialised
+2024-12-19 18:43:54,836 - root : [DEBUG] Users router (/router) initialised
+2024-12-19 18:43:54,836 - root : [DEBUG] Users router (/router) initialised
+2024-12-19 18:43:54,838 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-19 18:43:54,838 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-19 18:43:55,178 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:55,178 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:55,189 - root : [DEBUG] Accessed /api/v1/news/news
+2024-12-19 18:43:55,189 - root : [DEBUG] Accessed /api/v1/news/news
+2024-12-19 18:43:55,218 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): o4508454796066816.ingest.us.sentry.io:443
+2024-12-19 18:43:55,218 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): o4508454796066816.ingest.us.sentry.io:443
+2024-12-19 18:43:55,221 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/news/news "HTTP/1.1 200 OK"
+2024-12-19 18:43:55,221 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/news/news "HTTP/1.1 200 OK"
+2024-12-19 18:43:55,388 - passlib.handlers.bcrypt : [DEBUG] detected 'bcrypt' backend, version '4.0.1'
+2024-12-19 18:43:55,388 - passlib.handlers.bcrypt : [DEBUG] detected 'bcrypt' backend, version '4.0.1'
+2024-12-19 18:43:55,389 - passlib.handlers.bcrypt : [DEBUG] 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-12-19 18:43:55,389 - passlib.handlers.bcrypt : [DEBUG] 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-12-19 18:43:56,134 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,134 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,141 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,141 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,147 - root : [DEBUG] 1 accessed /api/v1/news/user_news
+2024-12-19 18:43:56,147 - root : [DEBUG] 1 accessed /api/v1/news/user_news
+2024-12-19 18:43:56,166 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/news/user_news "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,166 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/news/user_news "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,179 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,179 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,184 - root : [DEBUG] Accessed /api/v1/news/search_news: Test search prompt
+2024-12-19 18:43:56,184 - root : [DEBUG] Accessed /api/v1/news/search_news: Test search prompt
+2024-12-19 18:43:56,186 - filelock : [DEBUG] Attempting to acquire lock 2817069500944 on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,186 - filelock : [DEBUG] Attempting to acquire lock 2817069500944 on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,187 - filelock : [DEBUG] Lock 2817069500944 acquired on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,187 - filelock : [DEBUG] Lock 2817069500944 acquired on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,215 - filelock : [DEBUG] Attempting to release lock 2817069500944 on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,215 - filelock : [DEBUG] Attempting to release lock 2817069500944 on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,217 - filelock : [DEBUG] Lock 2817069500944 released on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,217 - filelock : [DEBUG] Lock 2817069500944 released on C:\Users\samlu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\tldextract\.suffix_cache\publicsuffix.org-tlds\de84b5ca2167d4c83e38fb162f2e8738.tldextract.json.lock
+2024-12-19 18:43:56,282 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/search_news "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,282 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/search_news "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,289 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,289 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,297 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,297 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,307 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/news_summary "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,307 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/news_summary "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,348 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,348 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,356 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,356 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,359 - root : [DEBUG] 1 accessed /api/v1/news/1/upvote
+2024-12-19 18:43:56,359 - root : [DEBUG] 1 accessed /api/v1/news/1/upvote
+2024-12-19 18:43:56,380 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/1/upvote "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,380 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/1/upvote "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,385 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,385 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,391 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,391 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,394 - root : [DEBUG] 1 accessed /api/v1/news/1/upvote
+2024-12-19 18:43:56,394 - root : [DEBUG] 1 accessed /api/v1/news/1/upvote
+2024-12-19 18:43:56,414 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/1/upvote "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,414 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/1/upvote "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,421 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,421 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,430 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,430 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,433 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,433 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,443 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/news_summary_with_custom_model "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,443 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/news_summary_with_custom_model "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,448 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,448 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,454 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,454 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:56,464 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/news_summary_with_custom_model "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,464 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/news/news_summary_with_custom_model "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,481 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,481 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,493 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,493 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,497 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/prices/necessities-price "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,497 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/prices/necessities-price "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,507 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,507 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,522 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/prices/necessities-price?category=%E9%AE%AE%E4%B9%B3&commodity=%E7%B5%B1%E4%B8%80%E7%91%9E%E7%A9%97%E9%AB%98%E5%84%AA%E8%B3%AA%E9%AE%AE%E4%B9%B3 "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,522 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/prices/necessities-price?category=%E9%AE%AE%E4%B9%B3&commodity=%E7%B5%B1%E4%B8%80%E7%91%9E%E7%A9%97%E9%AB%98%E5%84%AA%E8%B3%AA%E9%AE%AE%E4%B9%B3 "HTTP/1.1 200 OK"
+2024-12-19 18:43:56,533 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,533 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:56,540 - root : [DEBUG] Creating user: newuser
+2024-12-19 18:43:56,540 - root : [DEBUG] Creating user: newuser
+2024-12-19 18:43:56,551 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,551 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,601 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,601 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,660 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,660 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,718 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,718 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,769 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,769 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,819 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,819 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,871 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,871 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,921 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:56,921 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:57,188 - root : [DEBUG] Created user: newuser
+2024-12-19 18:43:57,188 - root : [DEBUG] Created user: newuser
+2024-12-19 18:43:57,197 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/users/register "HTTP/1.1 200 OK"
+2024-12-19 18:43:57,197 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/users/register "HTTP/1.1 200 OK"
+2024-12-19 18:43:57,252 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:57,252 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:57,888 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:57,888 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_name with data[0:8]
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_name with data[0:8]
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_data with data[9:17]
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_data with data[9:17]
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-19 18:43:57,893 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-19 18:43:57,894 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-19 18:43:57,894 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-19 18:43:57,894 - multipart.multipart : [DEBUG] Calling on_field_name with data[18:26]
+2024-12-19 18:43:57,894 - multipart.multipart : [DEBUG] Calling on_field_name with data[18:26]
+2024-12-19 18:43:57,895 - multipart.multipart : [DEBUG] Calling on_field_data with data[27:39]
+2024-12-19 18:43:57,895 - multipart.multipart : [DEBUG] Calling on_field_data with data[27:39]
+2024-12-19 18:43:57,895 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-19 18:43:57,895 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-19 18:43:57,895 - multipart.multipart : [DEBUG] Calling on_end with no data
+2024-12-19 18:43:57,895 - multipart.multipart : [DEBUG] Calling on_end with no data
+2024-12-19 18:43:57,903 - root : [DEBUG] Login initialised: testuser
+2024-12-19 18:43:57,903 - root : [DEBUG] Login initialised: testuser
+2024-12-19 18:43:58,535 - root : [DEBUG] Logged in: testuser
+2024-12-19 18:43:58,535 - root : [DEBUG] Logged in: testuser
+2024-12-19 18:43:58,544 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/users/login "HTTP/1.1 200 OK"
+2024-12-19 18:43:58,544 - httpx : [INFO] HTTP Request: POST http://testserver/api/v1/users/login "HTTP/1.1 200 OK"
+2024-12-19 18:43:58,553 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:58,553 - asyncio : [DEBUG] Using proactor: IocpProactor
+2024-12-19 18:43:58,559 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:58,559 - root : [DEBUG] Authenticating token: eyJhbGciOi...
+2024-12-19 18:43:58,562 - root : [DEBUG] Accessed /api/v1/users/me: testuser
+2024-12-19 18:43:58,562 - root : [DEBUG] Accessed /api/v1/users/me: testuser
+2024-12-19 18:43:58,568 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/users/me "HTTP/1.1 200 OK"
+2024-12-19 18:43:58,568 - httpx : [INFO] HTTP Request: GET http://testserver/api/v1/users/me "HTTP/1.1 200 OK"
+2024-12-19 18:43:58,598 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:58,598 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:58,600 - httpx : [DEBUG] load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-12-19 18:43:58,600 - httpx : [DEBUG] load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-12-19 18:43:58,603 - httpx : [DEBUG] load_verify_locations cafile='C:\\Users\\samlu\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\certifi\\cacert.pem'
+2024-12-19 18:43:58,603 - httpx : [DEBUG] load_verify_locations cafile='C:\\Users\\samlu\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\certifi\\cacert.pem'
+2024-12-19 18:43:58,649 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:58,649 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:43:59,470 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): example.com:443
+2024-12-19 18:43:59,470 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): example.com:443
+2024-12-19 18:44:00,341 - urllib3.connectionpool : [DEBUG] https://example.com:443 "GET /news/test-news HTTP/11" 404 648
+2024-12-19 18:44:00,341 - urllib3.connectionpool : [DEBUG] https://example.com:443 "GET /news/test-news HTTP/11" 404 648
+2024-12-19 18:44:00,422 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (2): o4508454796066816.ingest.us.sentry.io:443
+2024-12-19 18:44:00,422 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (2): o4508454796066816.ingest.us.sentry.io:443
+2024-12-19 18:44:01,345 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:44:01,345 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:44:01,398 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-19 18:44:01,398 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
