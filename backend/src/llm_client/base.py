@@ -22,6 +22,8 @@ class PromptInterface(BaseModel):
 
 class LLMClientBase(metaclass=ABCMeta):
     client: ai.Client = ...
+class LLMClientBase(metaclass=ABCMeta):
+    client: ai.Client = ...
     
     @abstractmethod
     def _generate_completion(self, prompt: PromptInterface) -> str:
