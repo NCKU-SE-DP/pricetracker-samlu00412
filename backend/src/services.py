@@ -2,7 +2,7 @@ import sentry_sdk
 from apscheduler.schedulers.background import BackgroundScheduler
 
 sentry_sdk.init(
-    dsn="https://4001ffe917ccb261aa0e0c34026dc343@o4505702629834752.ingest.us.sentry.io/4507694792704000",
+    dsn="https://dc598c98fc2a30ac872ac74fe9753121@o4508454796066816.ingest.us.sentry.io/4508454914490368",
     traces_sample_rate=1.0,
     profiles_sample_rate=1.0,
 )

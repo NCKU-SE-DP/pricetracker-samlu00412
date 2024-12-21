@@ -7,8 +7,8 @@ from src.database import Base
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(Constants.MAX_USERNAME_LENGTH), unique=True, nullable=False)
-    hashed_password = Column(String(Constants.MAX_PASSWORD_LENGTH), nullable=False)
+    username = Column(String(Constants.User.MAX_USERNAME_LENGTH), unique=True, nullable=False)
+    hashed_password = Column(String(Constants.User.MAX_PASSWORD_LENGTH), nullable=False)
     upvoted_news = relationship(
         "NewsArticle",
         secondary=user_news_association_table,

@@ -35,10 +35,13 @@ UDNCrawler Methods:
 from requests import Response,get
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
+from sentry_sdk import capture_exception
 from urllib.parse import quote
+import logging
 
 from src.crawler.crawler_base import NewsCrawlerBase, Headline, News, NewsWithSummary
-from src.crawler.exceptions import DomainMismatchException
+from src.crawler.exceptions import DomainMismatchException,ExtractionException,ParseException
+from src.posts.models import NewsArticle
 
 class UDNCrawler(NewsCrawlerBase):
     CHANNEL_ID = 2
@@ -107,32 +110,47 @@ class UDNCrawler(NewsCrawlerBase):
         response = self._perform_request(url)
         if not self._is_valid_url(url):
             raise DomainMismatchException(url)
-        return self._extract_news(BeautifulSoup(response.text, "html.parser"), url)
+        try:
+            return self._extract_news(BeautifulSoup(response.text, "html.parser"), url)
+        except Exception as e:
+            logging.error(f"[UDNCrawler] Error parsing news content: {e}")
+            raise ParseException(url)
 
     @staticmethod
     def _extract_news(soup: BeautifulSoup, url: str) -> News:
-        title = soup.find("h1", class_="article-content__title").text
-        time = soup.find("time", class_="article-content__time").text
-        content_section = soup.find("section", class_="article-content__editor")
-        paragraphs = [p.text for p in content_section.find_all("p") 
-                      if p.text.strip() != "" and "?" not in p.text
-                      ]
-        return News(
-            title= title,
-            url=url,
-            time=time,
-            content=" ".join(paragraphs)
-        )
+        try:
+            title = soup.find("h1", class_="article-content__title").text
+            content_time = soup.find("time", class_="article-content__time").text
+            content_section = soup.find("section", class_="article-content__editor")
+            paragraphs = [
+                paragraph.text
+                for paragraph in content_section.find_all("p")
+                if paragraph.text.strip() != "" and "▪" not in paragraph.text
+            ]
+
+            return News(
+                url=url,
+                title=title,
+                time=content_time,
+                content=" ".join(paragraphs)
+            )
+        except Exception as e:
+            logging.error(f"[UDNCrawler] Error extracting news content: {e}")
+            raise ExtractionException(url)
+
 
     def save(self, news: NewsWithSummary, database: Session):
         database.add(news)
         self._commit_changes(database)
-        database.close()
+        
 
     @staticmethod
     def _commit_changes(database: Session):
         try:
             database.commit()
         except Exception as error:
+            logging.error(f"[UDNCrawler] Failed to save news to database: {error}")
+            capture_exception(error)
             database.rollback()
-            raise RuntimeError(f"Saving {error} failed.")
+        database.close()
+            

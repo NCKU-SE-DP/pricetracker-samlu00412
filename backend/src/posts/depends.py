@@ -9,11 +9,11 @@ from src.crawler.crawler_base import Headline
 from src.llm_client.openai_client import OpenAIClient
 from src.llm_client.anthropic import AnthropicClient
 
-id_counter = itertools.count(start=Constants.ID_START)
+id_counter = itertools.count(start=Constants.News.ID_START)
 crawler = UDNCrawler()
 
-openai = OpenAIClient(api_key=Constants.OPENAI_TOKEN)
-anthropic = AnthropicClient(api_key=Constants.ANTHROPIC_TOKEN)
+openai = OpenAIClient(api_key=Constants.APIKey.OPENAI_TOKEN)
+anthropic = AnthropicClient(api_key=Constants.APIKey.ANTHROPIC_TOKEN)
 
 
 def get_article_upvote_details(article_id, user_id, database):
