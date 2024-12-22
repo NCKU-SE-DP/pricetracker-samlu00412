@@ -90,5 +90,5 @@ def toggle_upvote(article_id, user_id, database):
         return "Article upvoted"
     
     
-def news_exists(id2, database: Session):
-    return database.query(NewsArticle).filter_by(id=id2).first() is not None
+def news_exists(news_id, database: Session):
+    return database.query(NewsArticle).filter_by(id=news_id).first() is not None
