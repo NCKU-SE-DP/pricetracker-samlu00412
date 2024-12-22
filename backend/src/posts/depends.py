@@ -7,7 +7,7 @@ from src.posts.models import NewsArticle
 from src.crawler.udn_crawler import UDNCrawler
 from src.crawler.crawler_base import Headline
 from src.llm_client.openai_client import OpenAIClient
-from src.llm_client.anthropic import AnthropicClient
+from backend.src.llm_client.anthropic_client import AnthropicClient
 
 id_counter = itertools.count(start=Constants.News.ID_START)
 crawler = UDNCrawler()
