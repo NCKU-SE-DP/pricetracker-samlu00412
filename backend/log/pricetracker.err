@@ -1,0 +1,21 @@
+2024-12-25 02:56:49,227 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 04:36:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-25 04:36:49,066 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 06:16:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-25 06:16:49,096 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 07:56:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given

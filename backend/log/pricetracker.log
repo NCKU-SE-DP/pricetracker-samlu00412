@@ -2186,3 +2186,89 @@ WHERE user_news_upvotes.news_articles_id = ? AND user_news_upvotes.user_id = ?
 2024-12-19 18:44:01,345 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
 2024-12-19 18:44:01,398 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
 2024-12-19 18:44:01,398 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-25 01:16:48,820 - root : [DEBUG] Initialisation started.
+2024-12-25 01:16:48,831 - root : [DEBUG] News router (/news) initialised
+2024-12-25 01:16:48,836 - root : [DEBUG] Users router (/router) initialised
+2024-12-25 01:16:48,838 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-25 01:16:48,844 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-25 01:16:48,849 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-25 01:16:48,851 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00204s] ()
+2024-12-25 01:16:48,857 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-25 01:16:48,858 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-25 01:16:48,861 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-25 01:16:48,861 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-25 01:16:48,864 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 01:16:48,864 - root : [DEBUG] Background scheduler started.
+2024-12-25 01:16:48,865 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 02:56:48.858725+00:00 (in 5999.993562 seconds)
+2024-12-25 01:16:48,865 - root : [INFO] PriceTracker backend has started.
+2024-12-25 02:56:48,359 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 02:56:48,361 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 02:56:48.858725+00:00 (in 0.496984 seconds)
+2024-12-25 02:56:48,859 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 02:56:48,862 - apscheduler.executors.default : [INFO] Running job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 02:56:48 UTC)" (scheduled at 2024-12-25 02:56:48.858725+00:00)
+2024-12-25 02:56:48,862 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 04:36:48.858725+00:00 (in 5999.995875 seconds)
+2024-12-25 02:56:48,885 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): udn.com:443
+2024-12-25 02:56:49,173 - urllib3.connectionpool : [DEBUG] https://udn.com:443 "GET /api/more?page=1&id=search%3A%25E5%2583%25B9%25E6%25A0%25BC&channelId=2&type=searchword HTTP/11" 200 5620
+2024-12-25 02:56:49,227 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 04:36:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-25 02:56:49,248 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): o4508454796066816.ingest.us.sentry.io:443
+2024-12-25 02:56:49,443 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-25 04:36:48,345 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 04:36:48,345 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 04:36:48.858725+00:00 (in 0.512812 seconds)
+2024-12-25 04:36:48,859 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 04:36:48,859 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 06:16:48.858725+00:00 (in 5999.998789 seconds)
+2024-12-25 04:36:48,860 - apscheduler.executors.default : [INFO] Running job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 06:16:48 UTC)" (scheduled at 2024-12-25 04:36:48.858725+00:00)
+2024-12-25 04:36:48,862 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): udn.com:443
+2024-12-25 04:36:49,056 - urllib3.connectionpool : [DEBUG] https://udn.com:443 "GET /api/more?page=1&id=search%3A%25E5%2583%25B9%25E6%25A0%25BC&channelId=2&type=searchword HTTP/11" 200 5224
+2024-12-25 04:36:49,066 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 06:16:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-25 04:36:49,090 - urllib3.connectionpool : [DEBUG] Resetting dropped connection: o4508454796066816.ingest.us.sentry.io
+2024-12-25 04:36:49,230 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-25 06:16:48,503 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:16:48,506 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 06:16:48.858725+00:00 (in 0.352638 seconds)
+2024-12-25 06:16:48,859 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:16:48,860 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 07:56:48.858725+00:00 (in 5999.997763 seconds)
+2024-12-25 06:16:48,861 - apscheduler.executors.default : [INFO] Running job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 07:56:48 UTC)" (scheduled at 2024-12-25 06:16:48.858725+00:00)
+2024-12-25 06:16:48,864 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): udn.com:443
+2024-12-25 06:16:49,088 - urllib3.connectionpool : [DEBUG] https://udn.com:443 "GET /api/more?page=1&id=search%3A%25E5%2583%25B9%25E6%25A0%25BC&channelId=2&type=searchword HTTP/11" 200 5020
+2024-12-25 06:16:49,096 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 07:56:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-25 06:16:49,124 - urllib3.connectionpool : [DEBUG] Resetting dropped connection: o4508454796066816.ingest.us.sentry.io
+2024-12-25 06:16:49,265 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-25 06:35:58,430 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-25 06:35:58,431 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:35:58,431 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-25 06:35:58,432 - root : [DEBUG] Background scheduler shutdown.
+2024-12-25 06:36:02,866 - root : [DEBUG] Initialisation started.
+2024-12-25 06:36:02,882 - root : [DEBUG] News router (/news) initialised
+2024-12-25 06:36:02,890 - root : [DEBUG] Users router (/router) initialised
+2024-12-25 06:36:02,893 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-25 06:36:02,906 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-25 06:36:02,913 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-25 06:36:02,916 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00297s] ()
+2024-12-25 06:36:02,929 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-25 06:36:02,933 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-25 06:36:02,934 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-25 06:36:02,934 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-25 06:36:02,936 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:36:02,936 - root : [DEBUG] Background scheduler started.
+2024-12-25 06:36:02,936 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 08:16:02.933394+00:00 (in 5999.996770 seconds)
+2024-12-25 06:36:02,937 - root : [INFO] PriceTracker backend has started.

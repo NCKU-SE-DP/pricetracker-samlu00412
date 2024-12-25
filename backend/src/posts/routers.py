@@ -7,7 +7,8 @@ from src.database import session_opener
 from src.llm_client.exceptions import EvaluationFailure
 from src.posts.models import NewsArticle
 from src.auth.depends import authenticate_user_token
-from src.posts.services import get_article_upvote_details,get_new_info,toggle_upvote,id_counter,openai,anthropic
+from src.posts.services import get_article_upvote_details,get_new_info,toggle_upvote,id_counter
+from src.posts.services import openai,anthropic
 from src.posts.schemas import PromptRequest,NewsSumaryRequestSchemaWithModel,NewsSummaryRequestSchema
 from src.crawler.udn_crawler import UDNCrawler
 from src.error_handlers.llm_exception import InvalidModelError,NoPromptError
@@ -103,8 +104,6 @@ async def search_news(request: PromptRequest):
             logging.error(f"Failed to validate and parse news: {err}")
             capture_exception(err)
             continue
-        #detailed_news.id = next(id_counter)
-        #news_list.append(detailed_news)
         
     return sorted(news_list, key=lambda time: time["time"], reverse=True)
 
