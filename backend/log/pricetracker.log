@@ -2272,3 +2272,451 @@ FROM news_articles) AS anon_1
 2024-12-25 06:36:02,936 - root : [DEBUG] Background scheduler started.
 2024-12-25 06:36:02,936 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 08:16:02.933394+00:00 (in 5999.996770 seconds)
 2024-12-25 06:36:02,937 - root : [INFO] PriceTracker backend has started.
+2024-12-25 06:45:57,158 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-25 06:45:57,158 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:45:57,159 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-25 06:45:57,159 - root : [DEBUG] Background scheduler shutdown.
+2024-12-25 06:45:59,830 - root : [DEBUG] Initialisation started.
+2024-12-25 06:45:59,839 - root : [DEBUG] News router (/news) initialised
+2024-12-25 06:45:59,844 - root : [DEBUG] Users router (/router) initialised
+2024-12-25 06:45:59,847 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-25 06:45:59,855 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-25 06:45:59,860 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-25 06:45:59,861 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00164s] ()
+2024-12-25 06:45:59,870 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-25 06:45:59,872 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-25 06:45:59,873 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-25 06:45:59,873 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-25 06:45:59,874 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:45:59,874 - root : [DEBUG] Background scheduler started.
+2024-12-25 06:45:59,874 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 08:25:59.872098+00:00 (in 5999.997303 seconds)
+2024-12-25 06:45:59,875 - root : [INFO] PriceTracker backend has started.
+2024-12-25 06:46:57,484 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-25 06:46:57,485 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:46:57,486 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-25 06:46:57,487 - root : [DEBUG] Background scheduler shutdown.
+2024-12-25 06:46:59,833 - root : [DEBUG] Initialisation started.
+2024-12-25 06:46:59,842 - root : [DEBUG] News router (/news) initialised
+2024-12-25 06:46:59,847 - root : [DEBUG] Users router (/router) initialised
+2024-12-25 06:46:59,849 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-25 06:46:59,857 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-25 06:46:59,862 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-25 06:46:59,863 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00146s] ()
+2024-12-25 06:46:59,869 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-25 06:46:59,872 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-25 06:46:59,873 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-25 06:46:59,874 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-25 06:46:59,875 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 06:46:59,875 - root : [DEBUG] Background scheduler started.
+2024-12-25 06:46:59,876 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-25 08:26:59.872543+00:00 (in 5999.996387 seconds)
+2024-12-25 06:46:59,876 - root : [INFO] PriceTracker backend has started.
+2024-12-25 07:57:11,391 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-25 07:57:11,393 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-25 07:57:11,394 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-25 07:57:11,395 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 10:45:21,685 - root : [DEBUG] Initialisation started.
+2024-12-26 10:45:21,709 - root : [DEBUG] News router (/news) initialised
+2024-12-26 10:45:21,720 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 10:45:21,724 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 10:45:21,744 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 10:45:21,761 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 10:45:21,763 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00182s] ()
+2024-12-26 10:45:21,779 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 10:45:21,782 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 10:45:21,785 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 10:45:21,787 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 10:45:21,790 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 10:45:21,791 - root : [DEBUG] Background scheduler started.
+2024-12-26 10:45:21,791 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:25:21.782567+00:00 (in 5999.990962 seconds)
+2024-12-26 10:45:21,792 - root : [INFO] PriceTracker backend has started.
+2024-12-26 10:45:24,588 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:24,687 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:24,688 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28de0e0>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:24,690 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (2): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:24,698 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:24,699 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28dd7b0>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:24,701 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (3): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:24,727 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:24,728 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28de5f0>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:24,729 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (4): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:24,953 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (5): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:24,964 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:24,967 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28df040>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:24,972 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (6): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:24,979 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:24,980 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28df220>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:24,982 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (7): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:24,998 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:25,004 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28def50>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:25,005 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (8): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,486 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (9): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,494 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:26,496 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28dea70>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:26,501 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (10): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,603 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:26,604 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28df760>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:26,607 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (11): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,613 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:26,614 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28de0e0>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:26,615 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (12): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,874 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (13): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,881 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:26,882 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28ddb70>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:26,884 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (14): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,893 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:26,895 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28dd2d0>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:26,897 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (15): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:45:26,905 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:45:26,906 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f82f28df790>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:45:26,908 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (16): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:48:12,805 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 10:48:12,821 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 10:48:12,825 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 10:48:12,835 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 10:48:18,960 - root : [DEBUG] Initialisation started.
+2024-12-26 10:48:18,993 - root : [DEBUG] News router (/news) initialised
+2024-12-26 10:48:19,005 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 10:48:19,009 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 10:48:19,038 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 10:48:19,082 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 10:48:19,084 - sqlalchemy.engine.Engine : [INFO] [generated in 0.01344s] ()
+2024-12-26 10:48:19,104 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 10:48:19,107 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 10:48:19,111 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 10:48:19,113 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 10:48:19,119 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 10:48:19,119 - root : [DEBUG] Background scheduler started.
+2024-12-26 10:48:19,120 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:28:19.107522+00:00 (in 5999.987086 seconds)
+2024-12-26 10:48:19,121 - root : [INFO] PriceTracker backend has started.
+2024-12-26 10:49:01,362 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:49:01,363 - multipart.multipart : [DEBUG] Calling on_field_name with data[0:10]
+2024-12-26 10:49:01,364 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:49:01,365 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:49:01,366 - multipart.multipart : [DEBUG] Calling on_field_name with data[12:20]
+2024-12-26 10:49:01,366 - multipart.multipart : [DEBUG] Calling on_field_data with data[21:27]
+2024-12-26 10:49:01,369 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:49:01,372 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:49:01,372 - multipart.multipart : [DEBUG] Calling on_field_name with data[28:36]
+2024-12-26 10:49:01,373 - multipart.multipart : [DEBUG] Calling on_field_data with data[37:43]
+2024-12-26 10:49:01,373 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:49:01,374 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:49:01,375 - multipart.multipart : [DEBUG] Calling on_field_name with data[44:49]
+2024-12-26 10:49:01,375 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:49:01,376 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:49:01,376 - multipart.multipart : [DEBUG] Calling on_field_name with data[51:60]
+2024-12-26 10:49:01,377 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:49:01,378 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:49:01,379 - multipart.multipart : [DEBUG] Calling on_field_name with data[62:75]
+2024-12-26 10:49:01,379 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:49:01,381 - multipart.multipart : [DEBUG] Calling on_end with no data
+2024-12-26 10:49:01,407 - root : [DEBUG] Login initialised: string
+2024-12-26 10:49:01,411 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 10:49:01,425 - sqlalchemy.engine.Engine : [INFO] SELECT users.id AS users_id, users.username AS users_username, users.hashed_password AS users_hashed_password 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2024-12-26 10:49:01,428 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00360s] ('string', 1, 0)
+2024-12-26 10:49:01,453 - passlib.handlers.bcrypt : [DEBUG] detected 'bcrypt' backend, version '4.0.1'
+2024-12-26 10:49:01,457 - passlib.handlers.bcrypt : [DEBUG] 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-12-26 10:49:02,243 - root : [DEBUG] Logged in: string
+2024-12-26 10:49:02,245 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 10:49:02,276 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:49:10,298 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:49:10,303 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc1897a6320>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -3] Temporary failure in name resolution)")': /api/4508454914490368/envelope/
+2024-12-26 10:49:10,309 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (2): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:49:10,337 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:49:10,339 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc1897a4a00>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:49:10,341 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (3): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:49:10,350 - urllib3.util.retry : [DEBUG] Incremented Retry for (url='/api/4508454914490368/envelope/'): Retry(total=0, connect=None, read=None, redirect=None, status=None)
+2024-12-26 10:49:10,351 - urllib3.connectionpool : [WARNING] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fc1897a65c0>: Failed to resolve 'o4508454796066816.ingest.us.sentry.io' ([Errno -2] Name or service not known)")': /api/4508454914490368/envelope/
+2024-12-26 10:49:10,353 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (4): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:56:01,513 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 10:56:01,521 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 10:56:01,522 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 10:56:01,524 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 10:56:09,297 - root : [DEBUG] Initialisation started.
+2024-12-26 10:56:09,321 - root : [DEBUG] News router (/news) initialised
+2024-12-26 10:56:09,334 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 10:56:09,337 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 10:56:09,358 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 10:56:09,370 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 10:56:09,381 - sqlalchemy.engine.Engine : [INFO] [generated in 0.01138s] ()
+2024-12-26 10:56:09,396 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 10:56:09,403 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 10:56:09,407 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 10:56:09,410 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 10:56:09,417 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 10:56:09,418 - root : [DEBUG] Background scheduler started.
+2024-12-26 10:56:09,419 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:36:09.403576+00:00 (in 5999.983740 seconds)
+2024-12-26 10:56:09,421 - root : [INFO] PriceTracker backend has started.
+2024-12-26 10:56:16,693 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 10:56:16,695 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 10:56:16,696 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 10:56:16,697 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 10:56:22,839 - root : [DEBUG] Initialisation started.
+2024-12-26 10:56:22,863 - root : [DEBUG] News router (/news) initialised
+2024-12-26 10:56:22,875 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 10:56:22,879 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 10:56:22,906 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 10:56:22,927 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 10:56:22,930 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00347s] ()
+2024-12-26 10:56:22,947 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 10:56:22,951 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 10:56:22,957 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 10:56:22,959 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 10:56:22,962 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 10:56:22,963 - root : [DEBUG] Background scheduler started.
+2024-12-26 10:56:22,963 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:36:22.950731+00:00 (in 5999.986788 seconds)
+2024-12-26 10:56:22,964 - root : [INFO] PriceTracker backend has started.
+2024-12-26 10:57:56,716 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:57:56,717 - multipart.multipart : [DEBUG] Calling on_field_name with data[0:10]
+2024-12-26 10:57:56,717 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:57:56,718 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:57:56,719 - multipart.multipart : [DEBUG] Calling on_field_name with data[12:20]
+2024-12-26 10:57:56,719 - multipart.multipart : [DEBUG] Calling on_field_data with data[21:27]
+2024-12-26 10:57:56,720 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:57:56,721 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:57:56,722 - multipart.multipart : [DEBUG] Calling on_field_name with data[28:36]
+2024-12-26 10:57:56,722 - multipart.multipart : [DEBUG] Calling on_field_data with data[37:43]
+2024-12-26 10:57:56,725 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:57:56,726 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:57:56,727 - multipart.multipart : [DEBUG] Calling on_field_name with data[44:49]
+2024-12-26 10:57:56,728 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:57:56,728 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:57:56,729 - multipart.multipart : [DEBUG] Calling on_field_name with data[51:60]
+2024-12-26 10:57:56,730 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:57:56,731 - multipart.multipart : [DEBUG] Calling on_field_start with no data
+2024-12-26 10:57:56,732 - multipart.multipart : [DEBUG] Calling on_field_name with data[62:75]
+2024-12-26 10:57:56,733 - multipart.multipart : [DEBUG] Calling on_field_end with no data
+2024-12-26 10:57:56,734 - multipart.multipart : [DEBUG] Calling on_end with no data
+2024-12-26 10:57:56,762 - root : [DEBUG] Login initialised: string
+2024-12-26 10:57:56,766 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 10:57:56,778 - sqlalchemy.engine.Engine : [INFO] SELECT users.id AS users_id, users.username AS users_username, users.hashed_password AS users_hashed_password 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2024-12-26 10:57:56,780 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00259s] ('string', 1, 0)
+2024-12-26 10:57:56,803 - passlib.handlers.bcrypt : [DEBUG] detected 'bcrypt' backend, version '4.0.1'
+2024-12-26 10:57:56,804 - passlib.handlers.bcrypt : [DEBUG] 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-12-26 10:57:57,627 - root : [DEBUG] Logged in: string
+2024-12-26 10:57:57,630 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 10:57:57,666 - urllib3.connectionpool : [DEBUG] Starting new HTTPS connection (1): o4508454796066816.ingest.us.sentry.io:443
+2024-12-26 10:57:58,077 - urllib3.connectionpool : [DEBUG] https://o4508454796066816.ingest.us.sentry.io:443 "POST /api/4508454914490368/envelope/ HTTP/11" 200 None
+2024-12-26 11:02:17,075 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:02:17,078 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:02:17,080 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:02:17,081 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:02:24,946 - root : [DEBUG] Initialisation started.
+2024-12-26 11:02:24,976 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:02:24,986 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:02:24,989 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:02:25,005 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:02:25,015 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:02:25,016 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00155s] ()
+2024-12-26 11:02:25,031 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:02:25,038 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:02:25,041 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:02:25,043 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:02:25,048 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:02:25,049 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:02:25,049 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:42:25.038355+00:00 (in 5999.988458 seconds)
+2024-12-26 11:02:25,050 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:04:44,450 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:04:44,458 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:04:44,462 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:04:44,464 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:04:52,056 - root : [DEBUG] Initialisation started.
+2024-12-26 11:04:52,089 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:04:52,106 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:04:52,109 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:04:52,127 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:04:52,137 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:04:52,139 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00206s] ()
+2024-12-26 11:04:52,152 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:04:52,158 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:04:52,160 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:04:52,161 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:04:52,163 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:04:52,164 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:04:52,164 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:44:52.158222+00:00 (in 5999.993435 seconds)
+2024-12-26 11:04:52,165 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:12:27,350 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:12:27,353 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:12:27,354 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:12:27,355 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:12:35,124 - root : [DEBUG] Initialisation started.
+2024-12-26 11:12:35,143 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:12:35,153 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:12:35,156 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:12:35,173 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:12:35,186 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:12:35,187 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00181s] ()
+2024-12-26 11:12:35,198 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:12:35,205 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:12:35,207 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:12:35,209 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:12:35,211 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:12:35,211 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:12:35,212 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:52:35.204754+00:00 (in 5999.992337 seconds)
+2024-12-26 11:12:35,213 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:12:46,376 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:12:46,380 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:12:46,385 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:12:46,386 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:12:52,622 - root : [DEBUG] Initialisation started.
+2024-12-26 11:12:52,645 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:12:52,658 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:12:52,662 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:12:52,692 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:12:52,724 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:12:52,731 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00782s] ()
+2024-12-26 11:12:52,754 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:12:52,758 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:12:52,761 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:12:52,763 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:12:52,766 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:12:52,766 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:12:52,767 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:52:52.757793+00:00 (in 5999.990751 seconds)
+2024-12-26 11:12:52,767 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:16:12,769 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:16:12,772 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:16:12,773 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:16:12,775 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:16:20,041 - root : [DEBUG] Initialisation started.
+2024-12-26 11:16:20,069 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:16:20,080 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:16:20,084 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:16:20,110 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:16:20,122 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:16:20,124 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00245s] ()
+2024-12-26 11:16:20,140 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:16:20,148 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:16:20,153 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:16:20,157 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:16:20,160 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:16:20,161 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:16:20,162 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:56:20.147913+00:00 (in 5999.985642 seconds)
+2024-12-26 11:16:20,163 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:17:35,455 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:17:35,458 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:17:35,463 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:17:35,466 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:17:43,434 - root : [DEBUG] Initialisation started.
+2024-12-26 11:17:43,456 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:17:43,469 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:17:43,491 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:17:43,511 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:17:43,523 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:17:43,533 - sqlalchemy.engine.Engine : [INFO] [generated in 0.01092s] ()
+2024-12-26 11:17:43,577 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:17:43,584 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:17:43,586 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:17:43,587 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:17:43,593 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:17:43,593 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:17:43,597 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:57:43.584178+00:00 (in 5999.986355 seconds)
+2024-12-26 11:17:43,598 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:17:49,831 - root : [DEBUG] Initialisation started.
+2024-12-26 11:17:49,870 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:17:49,884 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:17:49,888 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:17:49,928 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:17:49,950 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:17:49,951 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00255s] ()
+2024-12-26 11:17:49,966 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:17:49,970 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:17:49,973 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:17:49,975 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:17:49,979 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:17:49,979 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:17:49,980 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:57:49.969719+00:00 (in 5999.989500 seconds)
+2024-12-26 11:17:49,981 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:18:42,850 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:18:42,853 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:18:42,855 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:18:42,856 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:18:50,524 - root : [DEBUG] Initialisation started.
+2024-12-26 11:18:50,548 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:18:50,560 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:18:50,563 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:18:50,589 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:18:50,612 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:18:50,614 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00288s] ()
+2024-12-26 11:18:50,633 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:18:50,640 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:18:50,642 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:18:50,644 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:18:50,649 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:18:50,650 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:18:50,650 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 12:58:50.640281+00:00 (in 5999.989497 seconds)
+2024-12-26 11:18:50,652 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:19:53,777 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:19:53,779 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:19:53,780 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:19:53,781 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:20:01,628 - root : [DEBUG] Initialisation started.
+2024-12-26 11:20:01,658 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:20:01,674 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:20:01,678 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:20:01,704 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:20:01,726 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:20:01,727 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00215s] ()
+2024-12-26 11:20:01,741 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:20:01,748 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:20:01,749 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:20:01,751 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:20:01,755 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:20:01,755 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:20:01,756 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 13:00:01.747827+00:00 (in 5999.991761 seconds)
+2024-12-26 11:20:01,757 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:21:01,462 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:21:01,466 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:21:01,475 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:21:01,479 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:21:08,981 - root : [DEBUG] Initialisation started.
+2024-12-26 11:21:09,001 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:21:09,013 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:21:09,016 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:21:09,040 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:21:09,060 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:21:09,062 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00313s] ()
+2024-12-26 11:21:09,078 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:21:09,085 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:21:09,089 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:21:09,091 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:21:09,094 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:21:09,094 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:21:09,095 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 13:01:09.085378+00:00 (in 5999.989504 seconds)
+2024-12-26 11:21:09,097 - root : [INFO] PriceTracker backend has started.

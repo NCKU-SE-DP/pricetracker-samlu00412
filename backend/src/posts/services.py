@@ -1,4 +1,3 @@
-import json
 import itertools
 import logging
 from sentry_sdk import capture_exception
@@ -11,6 +10,7 @@ from src.crawler.crawler_base import Headline,NewsWithSummary
 from src.llm_client.openai_client import OpenAIClient
 from src.llm_client.anthropic_client import AnthropicClient
 from src.llm_client.exceptions import EvaluationFailure
+from src.posts.exceptions import handle_exception
 
 id_counter = itertools.count(start=Constants.News.ID_START)
 crawler = UDNCrawler()
@@ -62,7 +62,7 @@ def get_new(is_initial=False):
     for news in news_data:
         title = news.title
         try:
-            relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+            relevance = openai.evaluate_relevance(title)
         except EvaluationFailure as e:
             logging.error(f"Failed to evaluate relevance: {e}")
             capture_exception(e)
@@ -114,9 +114,8 @@ def toggle_upvote(news_id, user_id, db):
             db.commit()
         except Exception as e:
             db.rollback()
-            logging.error(f"Failed to remove upvote: {e}")
-            capture_exception(e)
-            return "Failed to remove upvote"
+            handle_exception(e,"Failed to remove upvote")
+
         return "Upvote removed"
     else:
         insert_command = insert(user_news_association_table).values(
@@ -127,9 +126,8 @@ def toggle_upvote(news_id, user_id, db):
             db.commit()
         except Exception as e:
             db.rollback()
-            logging.error(f"Failed to upvote: {e}")
-            capture_exception(e)
-            return "Failed to upvote"
+            handle_exception(e,"Failed to upvote")
+            
         return "Article upvoted"
     
 def news_exists(news_id, database: Session):

@@ -10,6 +10,7 @@ from src.users.models import User
 from src.configs import Constants
 from src.database import session_opener
 from src.error_handlers.server_exception import InternalServerError
+from src.auth.exceptions import handle_exception
 
 password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -38,17 +39,12 @@ def authenticate_user_token(
         logging.debug(f"Authenticating token: {token[:10]}...")
         payload = jwt.decode(token, Constants.Auth.KEY, algorithms=["HS256"])
     except ExpiredSignatureError as e:
-        logging.error(f"Token expired: {e}")
-        capture_exception(e)
-        raise HTTPException(status_code=401, detail="Token expired")
+        handle_exception(e,"Token expired")
     except JWTError as e:
-        logging.error(f"Token invalid: {e}")
-        capture_exception(e)
-        raise HTTPException(status_code=401, detail="Invalid token")
+        handle_exception(e,"Token invalid")
     except Exception as e:
-        logging.error(f"Failed to authenticate token: {e}")
-        capture_exception(e)
-        raise HTTPException(status_code=401, detail="Failed to authenticate token")
+        handle_exception(e,"Failed to authenticate token")
+        
     return database.query(User).filter(User.username == payload.get("sub")).first()
 
 def create_access_token(data, expires_delta=None):
