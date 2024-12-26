@@ -39,7 +39,7 @@ def get_new_info(search_term, is_initial=False):
     if is_initial:
         all_news_data = crawler.startup(search_term=search_term)
     else:
-        all_news_data = crawler.get_headline(search_term,page=Constants.INIT_PAGE_NUM)
+        all_news_data = crawler.get_headlines(search_term,page=Constants.INIT_PAGE_NUM)
     return all_news_data
 
 # add new to database

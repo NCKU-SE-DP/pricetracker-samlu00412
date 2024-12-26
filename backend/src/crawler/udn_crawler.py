@@ -45,10 +45,10 @@ from src.posts.models import NewsArticle
 
 class UDNCrawler(NewsCrawlerBase):
     CHANNEL_ID = 2
+    NEWS_WEBSITE_URL = "https://udn.com/api/more"
+    NEWS_WEBSITE_NEWS_CHILD_URLS = []
 
     def __init__(self, timeout: int = 5) -> None:
-        self.news_website_url = "https://udn.com/api/more"
-        self.news_website_news_child_urls = []
         self.timeout = timeout
 
     def startup(self, search_term: str) -> list[Headline]:
@@ -61,9 +61,9 @@ class UDNCrawler(NewsCrawlerBase):
         :return: A list of Headline namedtuples containing the title and URL of news articles.
         :rtype: list[Headline]
         """
-        return self.get_headline(search_term, page=(1, 10))
+        return self.get_headlines(search_term, page=(1, 10))
 
-    def get_headline(
+    def get_headlines(
         self, search_term: str, page: int | tuple[int, int]
     ) -> list[Headline]:
 
@@ -77,10 +77,10 @@ class UDNCrawler(NewsCrawlerBase):
         else:
             page_range = [page]
         for num in page_range:
-            headlines.extend(self._fetch_news(num,search_term))
+            headlines.extend(self._fetch_headlines(num,search_term))
         return headlines
 
-    def _fetch_news(self, page: int, search_term: str) -> list[Headline]:
+    def _fetch_headlines(self, page: int, search_term: str) -> list[Headline]:
         response = self._perform_request(self.news_website_url,
                                          self._create_search_params(page, search_term, "searchword"))
         return self._parse_headlines(response)
@@ -94,7 +94,7 @@ class UDNCrawler(NewsCrawlerBase):
         }
 
     def _perform_request(self, url: str | None = None, params: dict | None = None) -> Response:
-        return get(url, params)
+        return get(url, params, timeout=self.timeout)
             
 
     @staticmethod

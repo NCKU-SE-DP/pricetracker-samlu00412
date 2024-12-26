@@ -50,7 +50,7 @@ def get_new_info(search_term, is_initial=False):
     if is_initial:
         all_news_data = crawler.startup(search_term=search_term)
     else:
-        all_news_data = crawler.get_headline(search_term,page=Constants.News.INIT_PAGE_NUM)
+        all_news_data = crawler.get_headlines(search_term,page=Constants.News.INIT_PAGE_NUM)
     return all_news_data
 
 # add new to database
@@ -127,7 +127,7 @@ def toggle_upvote(news_id, user_id, db):
         except Exception as e:
             db.rollback()
             handle_exception(e,"Failed to upvote")
-            
+
         return "Article upvoted"
     
 def news_exists(news_id, database: Session):

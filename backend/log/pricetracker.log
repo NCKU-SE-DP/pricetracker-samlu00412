@@ -2720,3 +2720,87 @@ FROM news_articles) AS anon_1
 2024-12-26 11:21:09,094 - root : [DEBUG] Background scheduler started.
 2024-12-26 11:21:09,095 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 13:01:09.085378+00:00 (in 5999.989504 seconds)
 2024-12-26 11:21:09,097 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:28:36,062 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:28:36,067 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:28:36,070 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:28:36,072 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:28:50,951 - root : [DEBUG] Initialisation started.
+2024-12-26 11:28:50,975 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:28:50,985 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:28:50,988 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:28:51,014 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:28:51,037 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:28:51,040 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00421s] ()
+2024-12-26 11:28:51,058 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:28:51,065 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:28:51,068 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:28:51,072 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:28:51,075 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:28:51,076 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:28:51,077 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 13:08:51.064780+00:00 (in 5999.987383 seconds)
+2024-12-26 11:28:51,078 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:28:59,525 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:28:59,527 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:28:59,528 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:28:59,529 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:29:05,904 - root : [DEBUG] Initialisation started.
+2024-12-26 11:29:05,934 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:29:05,948 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:29:05,951 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:29:05,983 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:29:06,005 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:29:06,007 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00309s] ()
+2024-12-26 11:29:06,020 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:29:06,023 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:29:06,026 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:29:06,029 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:29:06,032 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:29:06,034 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 13:09:06.023344+00:00 (in 5999.989099 seconds)
+2024-12-26 11:29:06,034 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:29:06,037 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:32:29,671 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:32:29,675 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:32:29,677 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:32:29,678 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:32:37,617 - root : [DEBUG] Initialisation started.
+2024-12-26 11:32:37,645 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:32:37,655 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:32:37,660 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:32:37,676 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:32:37,685 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:32:37,691 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00614s] ()
+2024-12-26 11:32:37,705 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:32:37,712 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:32:37,715 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:32:37,716 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:32:37,718 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:32:37,719 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:32:37,720 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 13:12:37.712010+00:00 (in 5999.992268 seconds)
+2024-12-26 11:32:37,721 - root : [INFO] PriceTracker backend has started.
+2024-12-26 11:33:04,361 - apscheduler.scheduler : [INFO] Scheduler has been shut down
+2024-12-26 11:33:04,362 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:33:04,363 - apscheduler.scheduler : [DEBUG] No jobs; waiting until a job is added
+2024-12-26 11:33:04,365 - root : [DEBUG] Background scheduler shutdown.
+2024-12-26 11:33:10,715 - root : [DEBUG] Initialisation started.
+2024-12-26 11:33:10,747 - root : [DEBUG] News router (/news) initialised
+2024-12-26 11:33:10,759 - root : [DEBUG] Users router (/router) initialised
+2024-12-26 11:33:10,762 - root : [DEBUG] Prices router (/prices) initialised
+2024-12-26 11:33:10,798 - sqlalchemy.engine.Engine : [INFO] BEGIN (implicit)
+2024-12-26 11:33:10,824 - sqlalchemy.engine.Engine : [INFO] SELECT count(*) AS count_1 
+FROM (SELECT news_articles.id AS news_articles_id, news_articles.url AS news_articles_url, news_articles.title AS news_articles_title, news_articles.time AS news_articles_time, news_articles.content AS news_articles_content, news_articles.summary AS news_articles_summary, news_articles.reason AS news_articles_reason 
+FROM news_articles) AS anon_1
+2024-12-26 11:33:10,825 - sqlalchemy.engine.Engine : [INFO] [generated in 0.00173s] ()
+2024-12-26 11:33:10,841 - sqlalchemy.engine.Engine : [INFO] ROLLBACK
+2024-12-26 11:33:10,844 - apscheduler.scheduler : [INFO] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-12-26 11:33:10,846 - apscheduler.scheduler : [INFO] Added job "get_new" to job store "default"
+2024-12-26 11:33:10,847 - apscheduler.scheduler : [INFO] Scheduler started
+2024-12-26 11:33:10,852 - apscheduler.scheduler : [DEBUG] Looking for jobs to run
+2024-12-26 11:33:10,852 - root : [DEBUG] Background scheduler started.
+2024-12-26 11:33:10,852 - apscheduler.scheduler : [DEBUG] Next wakeup is due at 2024-12-26 13:13:10.844294+00:00 (in 5999.991394 seconds)
+2024-12-26 11:33:10,854 - root : [INFO] PriceTracker backend has started.
