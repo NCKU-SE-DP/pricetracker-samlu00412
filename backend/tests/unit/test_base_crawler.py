@@ -6,8 +6,8 @@ from src.crawler.exceptions import DomainMismatchException
 
 
 class MockNewsCrawler(NewsCrawlerBase):
-    news_website_url = "https://www.example.com"
-    news_website_news_child_urls = ["https://news.example.com"]
+    NEWS_WEBSITE_URL = "https://www.example.com"
+    NEWS_WEBSITE_NEWS_CHILD_URLS = ["https://news.example.com"]
 
     def get_headlines(self, search_term: str, page: int | tuple[int, int]):
         return [Headline(title="Test Article", url="https://www.example.com/article")]

@@ -81,7 +81,7 @@ class UDNCrawler(NewsCrawlerBase):
         return headlines
 
     def _fetch_headlines(self, page: int, search_term: str) -> list[Headline]:
-        response = self._perform_request(self.news_website_url,
+        response = self._perform_request(self.NEWS_WEBSITE_URL,
                                          self._create_search_params(page, search_term, "searchword"))
         return self._parse_headlines(response)
 
