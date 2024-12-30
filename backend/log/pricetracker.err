@@ -1,0 +1,49 @@
+2024-12-25 02:56:49,227 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 04:36:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-25 04:36:49,066 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 06:16:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-25 06:16:49,096 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-25 07:56:48 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 65, in get_new
+    relevance = openai.evaluate_relevance(title, "民生用品的價格變化")
+TypeError: LLMClientTemplate.evaluate_relevance() takes 2 positional arguments but 3 were given
+2024-12-26 15:08:59,584 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-26 16:48:59 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 61, in get_new
+    news_data = get_new_info("價格", is_initial=is_initial)
+  File "/app/src/posts/services.py", line 53, in get_new_info
+    all_news_data = crawler.get_headlines(search_term,page=Constants.News.INIT_PAGE_NUM)
+  File "/app/src/crawler/udn_crawler.py", line 80, in get_headlines
+    headlines.extend(self._fetch_headlines(num,search_term))
+  File "/app/src/crawler/udn_crawler.py", line 84, in _fetch_headlines
+    response = self._perform_request(self.news_website_url,
+AttributeError: 'UDNCrawler' object has no attribute 'news_website_url'
+2024-12-26 16:48:59,605 - apscheduler.executors.default : [ERROR] Job "get_new (trigger: interval[1:40:00], next run at: 2024-12-26 18:28:59 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/app/src/posts/services.py", line 61, in get_new
+    news_data = get_new_info("價格", is_initial=is_initial)
+  File "/app/src/posts/services.py", line 53, in get_new_info
+    all_news_data = crawler.get_headlines(search_term,page=Constants.News.INIT_PAGE_NUM)
+  File "/app/src/crawler/udn_crawler.py", line 80, in get_headlines
+    headlines.extend(self._fetch_headlines(num,search_term))
+  File "/app/src/crawler/udn_crawler.py", line 84, in _fetch_headlines
+    response = self._perform_request(self.news_website_url,
+AttributeError: 'UDNCrawler' object has no attribute 'news_website_url'
+2024-12-27 14:05:50,311 - root : [ERROR] Failed to validate and parse news: 'UDNCrawler' object has no attribute 'news_website_url'
+2024-12-27 14:05:50,311 - root : [ERROR] Failed to validate and parse news: 'UDNCrawler' object has no attribute 'news_website_url'

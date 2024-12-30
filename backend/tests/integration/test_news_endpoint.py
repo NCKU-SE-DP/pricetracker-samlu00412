@@ -116,7 +116,7 @@ def mock_openai(mocker, return_content):
     return mock_generate
 
 def mock_anthropic(mocker, return_content):
-    mock_generate = mocker.patch('src.llm_client.anthropic.AnthropicClient._generate_completion',autospec = True)
+    mock_generate = mocker.patch('src.llm_client.anthropic_client.AnthropicClient._generate_completion',autospec = True)
     mock_generate.return_value = return_content
     return mock_generate
 

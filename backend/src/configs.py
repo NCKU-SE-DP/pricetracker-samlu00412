@@ -21,7 +21,7 @@ class Constants:
         KEY = '1892dhianiandowqd0n'
         ENCODING_ALGO = "HS256"
         ERROR_CODE = 401
-        DEFAULT_EXPIRED_TIME = 15
+        DEFAULT_EXPIRED_TIME = 1
     class User:
         MAX_USERNAME_LENGTH = 50
         MAX_PASSWORD_LENGTH = 200

@@ -48,11 +48,11 @@ class NewsWithSummary(News):
 
 
 class NewsCrawlerBase(metaclass=abc.ABCMeta):
-    news_website_url: AnyHttpUrl | str
-    news_website_news_child_urls: list[AnyHttpUrl | str]
+    NEWS_WEBSITE_URL: AnyHttpUrl | str
+    NEWS_WEBSITE_NEWS_CHILD_URLS: list[AnyHttpUrl | str]
 
     @abc.abstractmethod
-    def get_headline(
+    def get_headlines(
             self, search_term: str, page: int | tuple[int, int]
     ) -> list[Headline]:
         """
@@ -132,7 +132,7 @@ class NewsCrawlerBase(metaclass=abc.ABCMeta):
         :param url: The URL to be checked for validity.
         :return: True if the URL is valid, False otherwise.
         """
-        main_domain = tldextract.extract(self.news_website_url).registered_domain
+        main_domain = tldextract.extract(self.NEWS_WEBSITE_URL).registered_domain
         url_domain = tldextract.extract(url).registered_domain
 
         if url_domain == main_domain:

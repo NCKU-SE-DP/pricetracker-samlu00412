@@ -7,7 +7,7 @@ from src.posts.models import NewsArticle
 from src.crawler.udn_crawler import UDNCrawler
 from src.crawler.crawler_base import Headline
 from src.llm_client.openai_client import OpenAIClient
-from src.llm_client.anthropic import AnthropicClient
+from backend.src.llm_client.anthropic_client import AnthropicClient
 
 id_counter = itertools.count(start=Constants.News.ID_START)
 crawler = UDNCrawler()
@@ -39,7 +39,7 @@ def get_new_info(search_term, is_initial=False):
     if is_initial:
         all_news_data = crawler.startup(search_term=search_term)
     else:
-        all_news_data = crawler.get_headline(search_term,page=Constants.INIT_PAGE_NUM)
+        all_news_data = crawler.get_headlines(search_term,page=Constants.INIT_PAGE_NUM)
     return all_news_data
 
 # add new to database
@@ -90,5 +90,5 @@ def toggle_upvote(article_id, user_id, database):
         return "Article upvoted"
     
     
-def news_exists(id2, database: Session):
-    return database.query(NewsArticle).filter_by(id=id2).first() is not None
+def news_exists(news_id, database: Session):
+    return database.query(NewsArticle).filter_by(id=news_id).first() is not None
